@@ -9,6 +9,7 @@ class Home extends React.Component {
         <Menu />
         <h2>Your favorite microblogging platform</h2>
         <LoginForm />
+      
       </>
     );
   }
