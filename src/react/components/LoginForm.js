@@ -3,6 +3,7 @@ import Spinner from "react-spinkit";
 import { connect } from "react-redux";
 import { login } from "../../redux";
 import "./LoginForm.css";
+import { NavLink } from "react-router-dom";
 
 class LoginForm extends React.Component {
   state = { username: "", password: "" };
@@ -40,9 +41,11 @@ class LoginForm extends React.Component {
             <button type="submit" disabled={loading}>
               Login
             </button>
-            <button type="" disabled={loading}>
-              Create New User
-            </button>
+            <NavLink to="/createuser">
+              <button type="" disabled={loading}>
+                Create New User
+              </button>
+            </NavLink>
           </div>
         </form>
         {loading && <Spinner name="circle" color="blue" />}
