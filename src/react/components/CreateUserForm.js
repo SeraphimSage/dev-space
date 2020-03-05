@@ -7,7 +7,12 @@ import { NavLink } from "react-router-dom";
 // import { NavLink } from "react-router-dom";
 
 class CreateUserForm extends React.Component {
-    state = { username: "", password: "" };
+    state = { 
+    username: "",
+    displayName: "", 
+    password: ""
+    
+};
 
     render() {
         const { loading, error } = this.props;
