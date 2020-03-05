@@ -4,8 +4,8 @@
   max-width: 20em;
 }
 
-#login-form.button {
+.buttons {
   display: flex;
   flex-direction: row;
-  background-color: red;
+  
 }
