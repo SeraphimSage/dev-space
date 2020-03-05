@@ -22,8 +22,9 @@ export const createUser = newLoginData => dispatch => {
 	})
 		.then(handleJsonResponse)
 		.then(result => dispatch(CREATE_USER.SUCCESS(result)))
-		.catch(err => Promise.reject(dispatch(CREATE_USER.FAIL(err))));
+		.catch(err => Promise.reject(dispatch(CREATE_USER.FAIL(err,)));
 };
+
 
 const DELETEUSER = createActions("deleteuser");
 export const deleteuser = () => (dispatch, getState) => {
@@ -39,6 +40,8 @@ export const deleteuser = () => (dispatch, getState) => {
     .then(result => dispatch(DELETEUSER.SUCCESS(result)))
     .catch(err => Promise.reject(dispatch(DELETEUSER.FAIL(err))));
 };
+
+
 
 export const reducers = {
     createUser: createReducer(asyncInitialState, {

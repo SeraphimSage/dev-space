@@ -20,7 +20,7 @@ class CreateUserForm extends React.Component {
 	handleSubmit = e => {
         e.preventDefault();
         this.props.createUser(this.state)
-        window.alert("Your account has been created!")
+        document.getElementById("create-user-form").reset()
 	};
 	render() {
 		return (
