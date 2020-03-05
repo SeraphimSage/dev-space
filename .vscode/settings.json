@@ -1,4 +1,4 @@
-{
+/* {
     "workbench.colorCustomizations": {
         "activityBar.background": "#ba0b0b",
         "activityBar.activeBorder": "#0bb50b",
@@ -13,7 +13,7 @@
         "statusBar.background": "#8a0808",
         "statusBarItem.hoverBackground": "#ba0b0b",
         "statusBar.foreground": "#e7e7e7"
-    }
+    } */
 } // {
 //     "workbench.colorCustomizations": {
 //         "activityBar.background": "#ba0b0b",

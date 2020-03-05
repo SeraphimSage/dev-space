@@ -1,5 +1,6 @@
 import React from "react";
-// import { connect } from "react-redux";
+import Spinner from "react-spinkit";
+import { connect } from "react-redux";
 import "./CreateUserForm.css";
 import { NavLink } from "react-router-dom";
 import { createUser } from "../../redux/createUser";
@@ -11,28 +12,26 @@ class CreateUserForm extends React.Component {
 		password: ""
 	};
 
-	handleChange = e => {
-		this.setState({
-			[e.target.id]: e.target.value
-		});
+	handleCreateUser = e => {
+		e.preventDefault();
+		this.props.createUser(this.state);
+		console.log(this.DefaultRootState);
 	};
-	handleSubmit = e => {
+
+	handleChange = e => {
 		this.setState({ [e.target.name]: e.target.value });
 	};
+
 	render() {
-		// const { loading, error } = this.props;}
-		// 	return (
-		// 		<div className="user" key={user.id}>
-		// 			<div>Username: {user.name}</div>
-		// 			<div>Display Name: {user.displayName}</div>
-		// 			<div>Password: {user.password}</div>
-		// 		</div>
-		// 	);
-		// })
+		const { loading, error } = this.props;
 		return (
 			<React.Fragment>
 				<h2 id="create-head">Create An Account</h2>
-				<form id="login-form" onSubmit={this.handleSubmit}>
+				<h3 id="instructions">
+					To create your account please make sure your Username, Display name,
+					and password are over 3 characters in length.
+				</h3>
+				<form id="createUser-form" onSubmit={this.handleCreateUser}>
 					<label htmlFor="username">Username</label>
 					<input
 						type="text"
@@ -62,20 +61,16 @@ class CreateUserForm extends React.Component {
 				</form>
 				<NavLink to="/">Return to home</NavLink>
 				<div className="test"></div>
-				{/* {loading && <Spinner name="circle" color="blue" />}
-				{error && <p style={{ color: "red" }}>{error.message}</p>} */}
+				{loading && <Spinner name="circle" color="blue" />}
+				{error && <p style={{ color: "red" }}>{error.message}</p>}
 			</React.Fragment>
 		);
 	}
 }
 
-export default CreateUserForm;
-
-// connect(
-//     state => ({
-//       result: state.auth.login.result,
-//       loading: state.auth.login.loading,
-//       error: state.auth.login.error
-//     }),
-//     { login }
-//   )(CreateUserForm);
+export default connect(
+	state => ({
+		result: state.users
+	}),
+	{ createUser }
+)(CreateUserForm);
