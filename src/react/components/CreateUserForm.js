@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import "./CreateUserForm.css";
 import { NavLink } from "react-router-dom";
 import { createUser } from "../../redux/users";
+import { Profile } from "../Profile";
 
 class CreateUserForm extends React.Component {
 	state = {
