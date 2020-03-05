@@ -4,3 +4,9 @@
     font-size: 2em;
     font-family: 'Roboto Condensed', sans-serif;
 }
+
+#create-user-form {
+    display: flex;
+  flex-direction: column;
+  max-width: 20em;
+}

@@ -1,6 +1,6 @@
 import React from "react";
-import { Menu } from "./components";
-import { CreateUserForm } from "./components";
+import { CreateUserForm, Menu } from "./components";
+import { userIsNotAuthenticated } from "./HOCs";
 
 class CreateUser extends React.Component {
 	render() {
@@ -13,4 +13,4 @@ class CreateUser extends React.Component {
 	}
 }
 
-export default CreateUser;
+export default userIsNotAuthenticated(CreateUser);

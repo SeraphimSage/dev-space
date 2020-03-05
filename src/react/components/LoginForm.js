@@ -6,7 +6,10 @@ import "./LoginForm.css";
 import { NavLink } from "react-router-dom";
 
 class LoginForm extends React.Component {
-  state = { username: "", password: "" };
+  state = { 
+    username: "", 
+    password: "" 
+};
 
   handleLogin = e => {
     e.preventDefault();
@@ -37,7 +40,6 @@ class LoginForm extends React.Component {
             required
             onChange={this.handleChange}
           />
-          <div id="buttons">
             <button type="submit" disabled={loading}>
               Login
             </button>
@@ -46,7 +48,11 @@ class LoginForm extends React.Component {
                 Create New User
               </button>
             </NavLink>
-          </div>
+            {/* <NavLink to="/deleteuser">
+              <button type="" disabled={loading}>
+                Delete Your Account
+              </button>
+            </NavLink> */}
         </form>
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
