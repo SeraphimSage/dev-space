@@ -22,7 +22,7 @@ export const createUser = newLoginData => dispatch => {
 	})
 		.then(handleJsonResponse)
 		.then(result => dispatch(CREATE_USER.SUCCESS(result)))
-		.catch(err => Promise.reject(dispatch(CREATE_USER.FAIL(err,)));
+		.catch(err => Promise.reject(dispatch(CREATE_USER.FAIL(err,))))
 };
 
 
