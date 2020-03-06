@@ -18,7 +18,10 @@
 .env.test.local
 .env.production.local
 .vscode/settings.json
+<<<<<<< HEAD
 
+=======
+>>>>>>> bb2f4d6efffe0ad2f0441e323ebd57efbe5f5a36
 
 npm-debug.log*
 yarn-debug.log*

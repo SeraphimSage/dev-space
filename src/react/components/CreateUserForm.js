@@ -4,12 +4,13 @@ import "./CreateUserForm.css";
 import { NavLink } from "react-router-dom";
 import { createUser } from "../../redux/users";
 
+
 class CreateUserForm extends React.Component {
 	state = {
 		username: "",
 		displayName: "",
 		password: ""
-	};
+    };
 
 	handleChange = e => {
         e.preventDefault();
@@ -21,7 +22,7 @@ class CreateUserForm extends React.Component {
         e.preventDefault();
         this.props.createUser(this.state)
         document.getElementById("create-user-form").reset()
-	};
+    };
 	render() {
 		return (
 			<React.Fragment>
