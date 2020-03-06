@@ -3,6 +3,7 @@ import Spinner from "react-spinkit";
 import { connect } from "react-redux";
 import { login } from "../../redux";
 import "./LoginForm.css";
+import "./CreateUserForm.css";
 import { NavLink } from "react-router-dom";
 
 class LoginForm extends React.Component {
@@ -24,6 +25,7 @@ class LoginForm extends React.Component {
     const { loading, error } = this.props;
     return (
       <React.Fragment>
+        <div id="big-box">
         <form id="login-form" onSubmit={this.handleLogin}>
           <label className="input-label" htmlFor="username">Username</label>
           <input
@@ -40,17 +42,20 @@ class LoginForm extends React.Component {
             required
             onChange={this.handleChange}
           />
-            <button className="input-label" type="submit" disabled={loading}>
+            <button className="input-button" type="submit" disabled={loading}>
               Login
             </button>
+        </form>
+        </div>
+        <div id="navlink-box">
             <NavLink className="input-label" to="/createuser">
-              <button className="input-label" type="" disabled={loading}>
+              <button className="input-button" type="" disabled={loading}>
                 Create New User
               </button>
             </NavLink>
-        </form>
+            </div>
         {loading && <Spinner name="circle" color="blue" />}
-        {error && <p className="input-label" style={{ color: "red" }}>{error.message}</p>}
+        {error && <p id="error">{error.message}</p>}
       </React.Fragment>
     );
   }
