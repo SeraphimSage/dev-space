@@ -27,7 +27,7 @@ export const createUser = newLoginData => dispatch => {
 
 
 const DELETEUSER = createActions("deleteuser");
-export const deleteuser = () => (dispatch, getState) => {
+export const deleteUser = () => (dispatch, getState) => {
   dispatch(DELETEUSER.START());
     dispatch(logout())
   const token = getState().auth.login.result.token;
@@ -40,6 +40,22 @@ export const deleteuser = () => (dispatch, getState) => {
     .then(result => dispatch(DELETEUSER.SUCCESS(result)))
     .catch(err => Promise.reject(dispatch(DELETEUSER.FAIL(err))));
 };
+
+const UPDATE_USER = createActions("updateUser");
+export const updateUser = () => (dispatch, getState) => {
+  dispatch(UPDATE_USER.START());
+    dispatch(logout())
+  const token = getState().auth.login.result.token;
+  const username = getState().auth.login.result.username;
+  return fetch(url + `/${username}`, {
+    method: "PATCH",
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders }
+  })
+    .then(handleJsonResponse)
+    .then(result => dispatch(UPDATE_USER.SUCCESS(result)))
+    .catch(err => Promise.reject(dispatch(UPDATE_USER.FAIL(err))));
+};
+
 
 
 

@@ -1,6 +1,9 @@
 import React from "react";
 import { Menu } from "./components";
 import { userIsAuthenticated } from "./HOCs";
+import { DeleteUserProfileBtn } from "./components"
+
+
 
 
 class Profile extends React.Component {
@@ -9,8 +12,9 @@ class Profile extends React.Component {
       <>
         <Menu isAuthenticated={this.props.isAuthenticated} />
         <h2>Profile</h2>
-        <button onSubmit={this.handleDelete}>Delete Your Account</button>
-      </>
+        <DeleteUserProfileBtn/>
+        <h2>UPDATE USERNAME AND PASSWORD</h2>
+        </>
     );
   }
 }
