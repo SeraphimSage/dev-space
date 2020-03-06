@@ -14,7 +14,7 @@ class Menu extends React.Component {
   render() {
     return (
       <div id="menu">
-        <img src={KwitterLogo}/>
+        <img src={KwitterLogo} alt="the kwitter logo"/>
         {this.props.isAuthenticated && (
           <div id="menu-links">
             <Link to="/messagefeed">Message Feed</Link>
