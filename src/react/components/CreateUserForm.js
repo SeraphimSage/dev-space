@@ -28,7 +28,7 @@ class CreateUserForm extends React.Component {
 			<React.Fragment>
 				<h2 id="create-head">Create An Account</h2>
 				<form id="create-user-form" onSubmit = {this.handleSubmit}>
-					<label htmlFor="username">Username</label>
+					<label class="input-label" htmlFor="username">Username</label>
 					<input
 						type="text"
 						name="username"
@@ -36,7 +36,7 @@ class CreateUserForm extends React.Component {
 						// required
 						onChange={this.handleChange}
 					/>
-					<label htmlFor="displayName">Display Name</label>
+					<label class="input-label" htmlFor="displayName">Display Name</label>
 					<input
 						type="text"
 						name="displayName"
@@ -44,8 +44,8 @@ class CreateUserForm extends React.Component {
 						// required
 						onChange={this.handleChange}
 					/>
-					<label htmlFor="password">Password</label>
-					<input
+					<label class="input-label" htmlFor="password">Password</label>
+					<input 
 						type="password"
 						name="password"
 						// required
