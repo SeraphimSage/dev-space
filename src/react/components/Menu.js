@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Menu.css";
 import { connect } from "react-redux";
 import { logout } from "../../redux";
+import KwitterLogo from './KwitterLogo.png';
 
 class Menu extends React.Component {
   handleLogout = event => {
@@ -13,7 +14,7 @@ class Menu extends React.Component {
   render() {
     return (
       <div id="menu">
-        <img src="src/KwitterLogo.png"/>
+        <img src={KwitterLogo}/>
         {this.props.isAuthenticated && (
           <div id="menu-links">
             <Link to="/messagefeed">Message Feed</Link>

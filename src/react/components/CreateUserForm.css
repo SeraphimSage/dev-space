@@ -1,12 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Inder&display=swap');
 
 #create-head {
     font-size: 2em;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Inder', sans-serif;
 }
 
 #create-user-form {
     display: flex;
   flex-direction: column;
   max-width: 20em;
+}
+
+.input-label {
+    font-family: 'Inder', sans-serif;
 }

@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Inder&display=swap');
+
 #menu {
-  background-color: lightskyblue;
+  background-color: rgb(206, 210, 212);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,4 +19,8 @@
   color: darkblue;
   text-decoration: underline;
   cursor: pointer;
+}
+
+#home-login {
+  font-family: 'Inder', sans-serif;
 }
