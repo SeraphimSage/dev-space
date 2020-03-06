@@ -51,9 +51,9 @@ class CreateUserForm extends React.Component {
 						// required
 						onChange={this.handleChange}
 					/>
-						<button type="submit">Submit</button>
+						<button class="input-label" type="submit">Submit</button>
 				</form>
-				<NavLink to="/">Return to home</NavLink>
+				<NavLink class="input-label" to="/">Return to home</NavLink>
 			</React.Fragment>
 		);
 	}

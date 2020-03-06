@@ -25,7 +25,7 @@ class LoginForm extends React.Component {
     return (
       <React.Fragment>
         <form id="login-form" onSubmit={this.handleLogin}>
-          <label htmlFor="username">Username</label>
+          <label class="input-label" htmlFor="username">Username</label>
           <input
             type="text"
             name="username"
@@ -33,18 +33,18 @@ class LoginForm extends React.Component {
             required
             onChange={this.handleChange}
           />
-          <label htmlFor="password">Password</label>
+          <label class="input-label" htmlFor="password">Password</label>
           <input
             type="password"
             name="password"
             required
             onChange={this.handleChange}
           />
-            <button type="submit" disabled={loading}>
+            <button class="input-label" type="submit" disabled={loading}>
               Login
             </button>
-            <NavLink to="/createuser">
-              <button type="" disabled={loading}>
+            <NavLink class="input-label" to="/createuser">
+              <button class="input-label" type="" disabled={loading}>
                 Create New User
               </button>
             </NavLink>
