@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Inder&display=swap');
 
+
+
 #profile, #update{
-    font-family: 'Inder', sans-serif;
+    color: var(--main-text-color);
+    font-family: var(--main-text-font);
+    text-align: center;
 }
+
+#deleteButtonBox {
+    display: flex;
+    justify-content: center;
+}
+

@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu } from "./components";
+import { Menu, UpdateUserForm } from "./components";
 import { userIsAuthenticated } from "./HOCs";
 import { DeleteUserProfileBtn } from "./components"
 import "./components/update.css";
@@ -15,6 +15,7 @@ class Profile extends React.Component {
         <h2 id="profile">Profile</h2>
         <DeleteUserProfileBtn/>
         <h2 id="update">Update Username or Password</h2>
+        <UpdateUserForm/>
         </>
     );
   }

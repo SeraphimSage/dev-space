@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from "react-redux";
 import { deleteUser } from "../../redux/users"
+import "./update.css";
 
 class DeleteUserProfileBtn extends React.Component {
 
@@ -12,7 +13,9 @@ class DeleteUserProfileBtn extends React.Component {
     }
     render(){
         return (
-            <button onClick={this.handleDelete}>Delete Your Profile!</button>
+            <div id="deleteButtonBox">
+            <button id="deleteButton" onClick={this.handleDelete}>Delete Your Profile!</button>
+            </div>
         )
     }
 }
