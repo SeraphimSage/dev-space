@@ -27,6 +27,7 @@ class CreateUserForm extends React.Component {
 		return (
 			<React.Fragment>
 				<h2 id="create-head">Create An Account</h2>
+				<div id="big-box">
 				<form id="create-user-form" onSubmit = {this.handleSubmit}>
 					<label className="input-label" htmlFor="username">Username</label>
 					<input
@@ -51,9 +52,12 @@ class CreateUserForm extends React.Component {
 						// required
 						onChange={this.handleChange}
 					/>
-						<button className="input-label" type="submit">Submit</button>
+						<button className="input-button" type="submit">Submit</button>
 				</form>
-				<NavLink className="input-label" to="/">Return to home</NavLink>
+				</div>
+				<div id="navlink-box">
+				<NavLink id="navlink-create" to="/">Return to home</NavLink>
+				</div>
 			</React.Fragment>
 		);
 	}

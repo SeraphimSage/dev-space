@@ -1,6 +1,36 @@
 @import url('https://fonts.googleapis.com/css?family=Inder&display=swap');
 
+
+#big-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#error {
+    color: red;
+    font-family:'Inder', sans-serif;
+    text-align: center;
+}
+
+#navlink-box {
+    display: flex;
+    justify-content: center;
+}
+
+#navlink-create {
+    font-family: 'Inder', sans-serif;
+}
+
+body {
+    background: rgb(240,126,0);
+background: radial-gradient(circle, rgba(240,126,0,1) 0%, rgba(0,255,254,1) 100%);
+}
+
+
 #create-head {
+    color: whitesmoke;
+    text-align: center;
     font-size: 2em;
     font-family: 'Inder', sans-serif;
 }
@@ -12,5 +42,10 @@
 }
 
 .input-label {
+    color: whitesmoke;
     font-family: 'Inder', sans-serif;
+}
+
+#input-button {
+    color:black;
 }
