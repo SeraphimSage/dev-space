@@ -14,7 +14,7 @@
 
 #menu-links {
   display: flex;
-  padding-left: 1em;
+  justify-content: right;
 }
 
 #menu-links a {

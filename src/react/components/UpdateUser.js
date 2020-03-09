@@ -11,14 +11,15 @@ class UpdateUserForm extends React.Component {
              displayName: ""
             },
             updated: false
-          }
+          };
 
           handleUpdateUser = e => {
             e.preventDefault();
             this.props.updateUser(this.state.updateInfo);
-            this.setState({updated:!this.state.updated})
-            document.getElementById("update-form").reset()
-          };
+            this.setState({updated:!this.state.updated});
+            document.getElementById("update-form").reset();
+            window.alert("Your information has been updated.");
+            };
         
           handleChange = e => {
             const updateInfo = {...this.state.updateInfo}
@@ -60,11 +61,12 @@ class UpdateUserForm extends React.Component {
                     <button onClick={this.handleUpdateUser} className="input-button" type="submit" disabled={loading}>
                       Update Info
                     </button>
+                    {error && <p id="error">{error.message}</p>}
                 </form>
                 </div>
               </React.Fragment>
             );
-          }
+          };
         }
 
 export default connect(
