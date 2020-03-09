@@ -42,14 +42,14 @@ export const deleteUser = () => (dispatch, getState) => {
 };
 
 const UPDATE_USER = createActions("updateUser");
-export const updateUser = () => (dispatch, getState) => {
+export const updateUser = updateData => (dispatch, getState) => {
   dispatch(UPDATE_USER.START());
-    dispatch(logout())
   const token = getState().auth.login.result.token;
   const username = getState().auth.login.result.username;
   return fetch(url + `/${username}`, {
     method: "PATCH",
-    headers: { Authorization: "Bearer " + token, ...jsonHeaders }
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders },
+    body: JSON.stringify(updateData)
   })
     .then(handleJsonResponse)
     .then(result => dispatch(UPDATE_USER.SUCCESS(result)))

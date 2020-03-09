@@ -9,7 +9,7 @@
 
 #error {
     color: red;
-    font-family:'Inder', sans-serif;
+    font-family:var(--main-text-font);
     text-align: center;
 }
 
@@ -19,31 +19,39 @@
 }
 
 #navlink-create {
-    font-family: 'Inder', sans-serif;
+    font-family: var(--main-text-font);
+    color: rgb(204, 122, 0);
+}
+
+:root {
+    --main-bg-color: rgb(38, 38, 38);
+    --main-text-color: rgb(255,163,26);
+    --main-link-color: rgb(204, 122, 0);
+    --main-text-font: 'Inder', sans-serif;
+    --header-menu-color:  rgba(153, 150, 150, 0.6);
 }
 
 body {
-    background: rgb(240,126,0);
-background: radial-gradient(circle, rgba(240,126,0,1) 0%, rgba(0,255,254,1) 100%);
+    background: var(--main-bg-color);
 }
 
 
 #create-head {
-    color: whitesmoke;
+    color: var(--main-text-color);
     text-align: center;
     font-size: 2em;
-    font-family: 'Inder', sans-serif;
+    font-family: var(--main-text-font);
 }
 
-#create-user-form {
+#create-user-form, #update-form {
     display: flex;
   flex-direction: column;
   max-width: 20em;
 }
 
 .input-label {
-    color: whitesmoke;
-    font-family: 'Inder', sans-serif;
+    color: var(--main-text-color);
+    font-family: var(--main-text-font);
 }
 
 #input-button {
