@@ -33,23 +33,27 @@ class CreateUserForm extends React.Component {
 					<input
 						type="text"
 						name="username"
-						// autoFocus
-						// required
+						autoFocus
+						minlength="4"
+						required
 						onChange={this.handleChange}
 					/>
 					<label className="input-label" htmlFor="displayName">Display Name</label>
 					<input
 						type="text"
 						name="displayName"
-						// autoFocus
-						// required
+						autoFocus
+						minlength="4"
+						required
 						onChange={this.handleChange}
 					/>
 					<label className="input-label" htmlFor="password">Password</label>
 					<input 
 						type="password"
 						name="password"
-						// required
+						required
+						autoFocus
+						minlength="4"
 						onChange={this.handleChange}
 					/>
 						<button className="input-button" type="submit">Submit</button>
