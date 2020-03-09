@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Menu } from "./Menu";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 import "./Message.css";
 
 class MessageFeed extends React.Component {
