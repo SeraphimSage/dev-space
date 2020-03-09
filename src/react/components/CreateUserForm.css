@@ -57,3 +57,16 @@ body {
 #input-button {
     color:black;
 }
+
+
+input:invalid {
+    border: 2px solid red;
+  }
+  
+  input:invalid:required {
+    background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(238, 144, 144));
+  }
+  
+  input:valid {
+    border: 2px solid rgb(2, 253, 15);
+  }

@@ -61,7 +61,7 @@ class UpdateUserForm extends React.Component {
                     <button onClick={this.handleUpdateUser} className="input-button" type="submit" disabled={loading}>
                       Update Info
                     </button>
-                    {error && <p id="error">{error.message}</p>}
+                    {error && <p id="error">{error.message}test</p>}
                 </form>
                 </div>
               </React.Fragment>
