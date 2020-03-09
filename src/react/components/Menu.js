@@ -3,8 +3,14 @@ import { Link } from "react-router-dom";
 import "./Menu.css";
 import { connect } from "react-redux";
 import { logout } from "../../redux";
+import { getUser } from "./getUser";
 
 class Menu extends React.Component {
+	getUser = event => {
+		event.preventDefault();
+		this.props.getUser();
+	};
+
 	handleLogout = event => {
 		event.preventDefault();
 		this.props.logout();
@@ -16,7 +22,9 @@ class Menu extends React.Component {
 				<img src="src/KwitterLogo.png" alt="kwitter logo" />
 				{this.props.isAuthenticated && (
 					<div id="menu-links">
-						<Link to="">Lookup User</Link>
+						<Link to="" id="getUserButton" onClick={this.getUser}>
+							Lookup User
+						</Link>
 						<Link to="/messagefeed">Message Feed</Link>
 						<Link to="/" onClick={this.handleLogout}>
 							Logout
