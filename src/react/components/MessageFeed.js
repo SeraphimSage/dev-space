@@ -8,11 +8,10 @@ class MessageFeed extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div id="home-link">
+
                 <NavLink to="/">
-                    Return To Home!
+                    <p id="home-link"> <u>Return To Home!</u></p>
                 </NavLink>
-                </div>
                 </React.Fragment>
 
         );
