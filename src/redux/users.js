@@ -55,8 +55,30 @@ export const updateUser = () => (dispatch, getState) => {
 		.catch(err => Promise.reject(dispatch(UPDATE_USER.FAIL(err))));
 };
 
+const GET_USER = createActions("getUser");
+export const getUser = () => (dispatch, getState) => {
+	dispatch(GET_USER.START());
+
+	// const token = getState().auth.login.result.token;
+	const username = getState().users.getUser.result;
+
+	return fetch(url + `/${username}`, {
+		method: "GET"
+		// headers: jsonHeaders
+	})
+		.then(handleJsonResponse)
+		.then(result => dispatch(GET_USER.SUCCESS(result)))
+		.catch(err => Promise.reject(dispatch(GET_USER.FAIL(err))));
+};
+
 export const reducers = {
 	createUser: createReducer(asyncInitialState, {
 		...asyncCases(CREATE_USER)
+	}),
+	getUser: createReducer(asyncInitialState, {
+		...asyncCases(GET_USER)
+	}),
+	updateUser: createReducer(asyncInitialState, {
+		...asyncCases(UPDATE_USER)
 	})
 };

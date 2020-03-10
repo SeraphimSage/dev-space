@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Menu.css";
 import { connect } from "react-redux";
 import { logout } from "../../redux";
-import { getUser } from "./getUser";
+import { GetUserForm } from "../components";
 
 class Menu extends React.Component {
 	getUser = event => {
@@ -22,9 +22,7 @@ class Menu extends React.Component {
 				<img src="src/KwitterLogo.png" alt="kwitter logo" />
 				{this.props.isAuthenticated && (
 					<div id="menu-links">
-						<Link to="" id="getUserButton" onClick={this.getUser}>
-							Lookup User
-						</Link>
+						<GetUserForm />
 						<Link to="/messagefeed">Message Feed</Link>
 						<Link to="/" onClick={this.handleLogout}>
 							Logout

@@ -1,24 +1,42 @@
 import React from "react";
+import Spinner from "react-spinkit";
 import { connect } from "react-redux";
+import { getUser } from "../../redux/users";
+import "./CreateUserForm.css";
+import "./LoginForm.css";
 
-class getUserForm extends React.Component {
+class GetUserForm extends React.Component {
 	state = {
-		username: ""
+		getUserInfo: {
+			username: "",
+			displayName: ""
+		}
 	};
+
+	// handleChange = e => {
+	// 	e.preventDefault();
+
+	// 	this.setState({
+	// 		[e.target.name]: e.target.value
+	// 	});
+	// };
 
 	handleChange = e => {
 		e.preventDefault();
-		this.setState({
-			[e.target.name]: e.target.value
-		});
+		const getNewUserInfo = { ...this.state.getUserInfo };
+		getNewUserInfo[e.target.name] = e.target.value;
+		this.setState({ getUserInfo: getNewUserInfo });
+		console.log(this.state);
 	};
+
 	handleSubmit = e => {
 		e.preventDefault();
-		this.props.getUser(this.state);
+		this.props.getUser(this.state.getUserInfo);
 		document.getElementById("lookup-user-form").reset();
 	};
 
 	render() {
+		const { loading, error } = this.props;
 		return (
 			<React.Fragment>
 				<form id="lookup-user-form" onSubmit={this.handleSubmit}>
@@ -26,11 +44,14 @@ class getUserForm extends React.Component {
 					<input
 						type="text"
 						name="username"
+						minLength="4"
 						// autoFocus
 						// required
 						onChange={this.handleChange}
 					/>
 				</form>
+				{loading && <Spinner name="circle" color="blue" />}
+				{error && <p style={{ color: "red" }}>{error.message}</p>}
 			</React.Fragment>
 		);
 	}
@@ -43,4 +64,4 @@ export default connect(
 		error: state.users.getUser.error
 	}),
 	{ getUser }
-)(getUserForm);
+)(GetUserForm);
