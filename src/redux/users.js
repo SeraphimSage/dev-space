@@ -59,9 +59,11 @@ export const updateUser = updateData => (dispatch, getState) => {
 
 
 
+
 export const reducers = {
     createUser: createReducer(asyncInitialState, {
       ...asyncCases(CREATE_USER) 
     })
   };
+
 

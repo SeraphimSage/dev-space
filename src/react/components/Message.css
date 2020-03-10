@@ -1,6 +1,29 @@
 
+#feed {
+    font-family: var(--main-text-font);
+}
 
 #home-link {
     text-align: center;
     color: var(--main-link-color);
 }
+
+#standard-multiline-flexible {
+    background-color: var(--header-menu-color);
+    border:2px solid var(--main-link-color);
+    color: var(--main-text-color);
+}
+
+#cm-form {
+    margin-top: 5em;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+#message-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
