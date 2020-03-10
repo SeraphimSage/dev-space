@@ -2,6 +2,7 @@ import React from "react"
 import { connect } from "react-redux";
 import { updateUser } from "../../redux/users"
 import "./CreateUserForm.css";
+import "./LoginForm.css";
 
 class UpdateUserForm extends React.Component {
           state = {
@@ -17,8 +18,6 @@ class UpdateUserForm extends React.Component {
             e.preventDefault();
             this.props.updateUser(this.state.updateInfo);
             this.setState({updated:!this.state.updated});
-            document.getElementById("update-form").reset();
-            window.alert("Your information has been updated.");
             };
         
           handleChange = e => {
@@ -33,13 +32,14 @@ class UpdateUserForm extends React.Component {
             return (
               <React.Fragment>
                 <div id="big-box">
-                <form id="update-form">
+                <form id="update-form" onSubmit={this.handleUpdateUser}>
                   <label className="input-label" htmlFor="password">Password</label>
                   <input
                     type="text"
                     name="password"
                     autoFocus
                     required
+                    minlength="4"
                     onChange={this.handleChange}
                   />
                   <label className="input-label" htmlFor="password">About</label>
@@ -48,6 +48,7 @@ class UpdateUserForm extends React.Component {
                     name="about"
                     autoFocus
                     required
+                    minlength="4"
                     onChange={this.handleChange}
                   />
                     <label className="input-label" htmlFor="displayName">Display Name</label>
@@ -56,14 +57,15 @@ class UpdateUserForm extends React.Component {
                     name="displayName"
                     autoFocus
                     required
+                    minlength="4"
                     onChange={this.handleChange}
                   />
-                    <button onClick={this.handleUpdateUser} className="input-button" type="submit" disabled={loading}>
+                    <button id="button" type="submit" disabled={loading}>
                       Update Info
                     </button>
-                    {error && <p id="error">{error.message}test</p>}
                 </form>
                 </div>
+                    {error && <p id="error">{error.message}</p>}
               </React.Fragment>
             );
           };

@@ -9,7 +9,7 @@ class MessageFeed extends React.Component {
             <React.Fragment>
 
                 <NavLink to="/">
-                    <p id="home-link"> <u>Return To Home!</u></p>
+                    <p id="home-link"> <u>Return To Home</u></p>
                 </NavLink>
                 </React.Fragment>
 
