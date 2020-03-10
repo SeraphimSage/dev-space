@@ -5,6 +5,7 @@ import { login } from "../../redux";
 import "./LoginForm.css";
 import "./CreateUserForm.css";
 import { NavLink } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 class LoginForm extends React.Component {
   state = { 
@@ -40,20 +41,21 @@ class LoginForm extends React.Component {
           <input
             type="password"
             name="password"
+            autoFocus
             required
             minlength="4"
             onChange={this.handleChange}
           />
-            <button className="input-button" type="submit" disabled={loading}>
-              Login
-            </button>
+            <Button variant="outlined" id="button" type="submit" disabled={loading}>
+              <strong>Login</strong>
+            </Button>
         </form>
         </div>
         <div id="navlink-box">
-            <NavLink className="input-label" to="/createuser">
-              <button className="input-button" type="" disabled={loading}>
-                Create New User
-              </button>
+            <NavLink id="button" to="/createuser">
+              <Button variant="outlined" id="button" type="" disabled={loading}>
+                <strong>Create New User</strong>
+              </Button>
             </NavLink>
             </div>
         {loading && <Spinner name="circle" color="blue" />}
