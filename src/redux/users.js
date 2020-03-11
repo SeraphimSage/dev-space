@@ -56,11 +56,11 @@ export const updateUser = () => (dispatch, getState) => {
 };
 
 const GET_USER = createActions("getUser");
-export const getUser = () => (dispatch, getState) => {
+export const getUser = getUserInfo => (dispatch, getState) => {
 	dispatch(GET_USER.START());
 
 	// const token = getState().auth.login.result.token;
-	const username = getState().users.getUser.result;
+	const username = getUserInfo.username;
 
 	return fetch(url + `/${username}`, {
 		method: "GET"

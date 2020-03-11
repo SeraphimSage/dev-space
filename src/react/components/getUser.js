@@ -8,8 +8,7 @@ import "./LoginForm.css";
 class GetUserForm extends React.Component {
 	state = {
 		getUserInfo: {
-			username: "",
-			displayName: ""
+			username: ""
 		}
 	};
 
@@ -23,16 +22,14 @@ class GetUserForm extends React.Component {
 
 	handleChange = e => {
 		e.preventDefault();
-		const getNewUserInfo = { ...this.state.getUserInfo };
-		getNewUserInfo[e.target.name] = e.target.value;
-		this.setState({ getUserInfo: getNewUserInfo });
-		console.log(this.state);
+		this.setState({ [e.target.name]: e.target.value });
 	};
 
 	handleSubmit = e => {
 		e.preventDefault();
-		this.props.getUser(this.state.getUserInfo);
+		this.props.getUser(this.state);
 		document.getElementById("lookup-user-form").reset();
+		console.log(this.state);
 	};
 
 	render() {
