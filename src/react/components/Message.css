@@ -6,6 +6,7 @@
 #home-link {
     text-align: center;
     color: var(--main-link-color);
+    font-family: var(--main-text-font);
 }
 
 #standard-multiline-flexible {

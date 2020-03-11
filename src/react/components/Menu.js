@@ -22,7 +22,7 @@ class Menu extends React.Component {
               Logout
             </Link>
           </div>
-        )}
+            )}
       </div>
     );
   }

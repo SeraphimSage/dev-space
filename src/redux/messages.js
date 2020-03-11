@@ -30,7 +30,7 @@ export const createMessage = messageData => dispatch => {
 const GET_MESSAGES = createActions("getMessages");
 export const getMessages = () => dispatch => {
 	dispatch({type: GET_MESSAGES.START});
-    return fetch(url + `?limit=100&offset=0`)
+    return fetch(url + `?limit=10&offset=0`)
 		.then(handleJsonResponse)
 		.then(result => dispatch(GET_MESSAGES.SUCCESS(result)))
 		.catch(err => Promise.reject(dispatch(GET_MESSAGES.FAIL(err))))

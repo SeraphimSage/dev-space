@@ -29,6 +29,10 @@ class MessageFeed extends React.Component {
         document.getElementById("cm-form").reset();
     }
     render() {
+        let messageArray = []
+        if (this.props.result) {
+            messageArray = this.props.result.messages
+        }
         return (
             
             <React.Fragment>
@@ -45,10 +49,10 @@ class MessageFeed extends React.Component {
                 </form>
                 <h2 id="feed">Message Feed</h2>
                 <div>
-                    { this.props.messages }
+                    { messageArray }
                 </div>
                 <NavLink to="/">
-                    <p variant="body1" id="home-link"> <u>Return To Home</u></p>
+                    <p  id="home-link"> <u>Return To Home</u></p>
                 </NavLink>
                 </div>
                 </React.Fragment>
@@ -57,8 +61,9 @@ class MessageFeed extends React.Component {
         }
     }
 const mapStateToProps = state => {
-    return {token: state.auth.login.result.token, 
-    messages: []}
+    return { result: state.messages.getMessages.result,
+        loading: state.messages.getMessages.loading,
+        error: state.messages.getMessages.error}
 }
 const mapDispatchToProps = { createMessage, getMessages }
 export default connect(mapStateToProps, mapDispatchToProps)(MessageFeed)
