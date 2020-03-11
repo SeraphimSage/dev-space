@@ -21,7 +21,6 @@ class MessageFeed extends React.Component {
   handleCreateMessage = e => {
     e.preventDefault();
     this.props.createMessage(this.state);
-    this.props.getMessages();
     document.getElementById("cm-form").reset();
   };
   render() {
@@ -32,7 +31,7 @@ class MessageFeed extends React.Component {
           <div key={ message.id } id="ms-div">
             <p id="ms-text">{`"`}{ message.text }{`"`}</p>
             <p id="username">{`~`}{message.username}</p>
-              <p id="ms-time">Posted on {message.createdAt.slice(0,19)}</p>
+              <p id="ms-time">Posted on {message.createdAt.slice(0,19).split("T").join(" ")}{` GMT `}</p>
           </div>
       ))
     }
