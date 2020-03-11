@@ -52,7 +52,7 @@ class LoginForm extends React.Component {
         </form>
         </div>
         <div id="navlink-box">
-            <NavLink id="button" to="/createuser">
+            <NavLink  to="/createuser">
               <Button variant="outlined" id="button" type="" disabled={loading}>
                 <strong>Create New User</strong>
               </Button>

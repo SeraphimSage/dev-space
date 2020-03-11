@@ -1,6 +1,64 @@
 
+#feed {
+    font-family: var(--main-text-font);
+}
 
 #home-link {
     text-align: center;
     color: var(--main-link-color);
+    font-family: var(--main-text-font);
+}
+
+#standard-multiline-flexible {
+    font-family: var(--main-text-font);
+    background-color: var(--header-menu-color);
+    border:2px solid var(--main-link-color);
+    color: var(--main-text-color);
+}
+
+#cm-form {
+    margin-top: 5em;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+#message-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#ms-div {
+    background-color: var(--header-menu-color);
+    padding: 15px;
+    border: 2px solid var(--main-link-color);
+    margin: 10px;
+    border-radius: 2.5%;
+}
+
+#ms-text {
+    font-family: var(--main-text-font);
+    padding: 5px;
+    background-color: var(--main-bg-color);
+    border-radius: 2.5%;
+    border: 2px solid var(--main-link-color);
+}
+
+#username {
+    font-family: var(--main-text-font);
+    padding: 2.5px;
+    text-align: center;
+    background-color: var(--main-bg-color);
+    border-radius: 2.5%;
+    border: 2px solid var(--main-link-color);
+}
+
+#ms-time {
+    font-family: var(--main-text-font);
+    padding: 5px;
+    text-align: center;
+    background-color: var(--main-bg-color);
+    border-radius: 2.5%;
+    border: 2px solid var(--main-link-color);
 }

@@ -33,6 +33,8 @@
 
 body {
     background: var(--main-bg-color);
+    color: var(--main-text-color);
+    font-weight: lighter;
 }
 
 
