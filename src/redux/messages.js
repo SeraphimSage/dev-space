@@ -28,7 +28,7 @@ export const createMessage = messageData => dispatch => {
 };
 
 const GET_MESSAGES = createActions("getMessages");
-export const getMessages = () => dispatch => {
+export const getMessages = () => (dispatch) => {
 	dispatch({type: GET_MESSAGES.START});
     return fetch(url + `?limit=10&offset=0`)
 		.then(handleJsonResponse)
