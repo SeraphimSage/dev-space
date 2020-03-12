@@ -6,6 +6,6 @@
 
 #button {
   background-color: var(--header-menu-color);
-  color: var(--main-link-color);
+  color: var(--main-text-color);
   border-color: var(--main-bg-color);
 }

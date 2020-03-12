@@ -3,14 +3,14 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import "./Message.css";
 import TextField from "@material-ui/core/TextField";
-import { createMessage, getMessages } from "../../redux/messages";
+import { createMessage, getMessages, deleteMessage } from "../../redux/messages";
 import Button from "@material-ui/core/Button";
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 class MessageFeed extends React.Component {
   componentDidMount() {
-    this.props.getMessages(0);
+    this.props.getMessages();
   }
 
   handleChange = e => {
@@ -27,8 +27,8 @@ class MessageFeed extends React.Component {
   };
 
   handleDeleteMessage = e => {
-    if(window.confirm("Are you sure you would like to delete your account?") === true){
-        this.props.deleteUser(this.state)
+    if(window.confirm("Are you sure you would like to delete your message?") === true){
+        this.props.deleteMessage(this.state)
         }
   }
 
@@ -39,7 +39,7 @@ class MessageFeed extends React.Component {
       let messages = this.props.result.messages;
       messageCompArray = messages.map(message => (
           <div key={ message.id } id="ms-div">
-               <IconButton id="delete" aria-label="delete">
+               <IconButton id="delete" aria-label="delete" onClick={this.handleDeleteMessage}>
         <DeleteIcon />
       </IconButton>
             <p id="ms-text">{`"`}{ message.text }{`"`}</p>
@@ -88,5 +88,5 @@ const mapStateToProps = state => {
     error: state.messages.getMessages.error
   };
 };
-const mapDispatchToProps = { createMessage, getMessages };
+const mapDispatchToProps = { createMessage, getMessages, deleteMessage };
 export default connect(mapStateToProps, mapDispatchToProps)(MessageFeed);
