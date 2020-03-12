@@ -37,12 +37,10 @@ export const getMessages = () => (dispatch) => {
 };
 
 const DELETE_MESSAGE = createActions("deleteMessage");
-export const deleteMessage = () => (dispatch, getState) => {
+export const deleteMessage = (messageId) => (dispatch, getState) => {
   dispatch(DELETE_MESSAGE.START());
   const token = getState().auth.login.result.token;
-  const messages = getState().messages.getMessages.result.messages;
-  const messageId = getState().messages.getMessages.result.messages.messageId;
-  return fetch(messages + `/${messageId}`, {
+  return fetch(url + `/${messageId}`, {
     method: "DELETE",
     headers: { Authorization: "Bearer " + token, ...jsonHeaders }
   })
