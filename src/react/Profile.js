@@ -5,8 +5,6 @@ import { DeleteUserProfileBtn } from "./components"
 import "./components/update.css";
 
 
-
-
 class Profile extends React.Component {
   render() {
     return (
@@ -20,5 +18,6 @@ class Profile extends React.Component {
     );
   }
 }
+
 
 export default userIsAuthenticated(Profile);

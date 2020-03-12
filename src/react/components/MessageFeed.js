@@ -5,10 +5,12 @@ import "./Message.css";
 import TextField from "@material-ui/core/TextField";
 import { createMessage, getMessages } from "../../redux/messages";
 import Button from "@material-ui/core/Button";
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 class MessageFeed extends React.Component {
   componentDidMount() {
-    this.props.getMessages();
+    this.props.getMessages(0);
   }
 
   handleChange = e => {
@@ -23,12 +25,23 @@ class MessageFeed extends React.Component {
     this.props.createMessage(this.state);
     document.getElementById("cm-form").reset();
   };
+
+  handleDeleteMessage = e => {
+    if(window.confirm("Are you sure you would like to delete your account?") === true){
+        this.props.deleteUser(this.state)
+        }
+  }
+
+
   render() {
     let messageCompArray = [];
     if (this.props.result) {
       let messages = this.props.result.messages;
       messageCompArray = messages.map(message => (
           <div key={ message.id } id="ms-div">
+               <IconButton id="delete" aria-label="delete">
+        <DeleteIcon />
+      </IconButton>
             <p id="ms-text">{`"`}{ message.text }{`"`}</p>
             <p id="username">{`~`}{message.username}</p>
               <p id="ms-time">Posted on {message.createdAt.slice(0,19).split("T").join(" ")}{` GMT `}</p>
