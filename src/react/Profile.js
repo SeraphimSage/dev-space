@@ -11,7 +11,7 @@ class Profile extends React.Component {
 			<>
 				<Menu isAuthenticated={this.props.isAuthenticated} />
 				<h2 id="profile">Profile</h2>
-				<ProfileCard />
+				{/* <ProfileCard /> */}
 				<DeleteUserProfileBtn />
 				<h2 id="update">Update Username or Password</h2>
 				<UpdateUserForm />
