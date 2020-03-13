@@ -4,4 +4,4 @@ export { default as CreateUserForm } from "./CreateUserForm";
 export { default as DeleteUserProfileBtn } from "./DeleteUser";
 export { default as UpdateUserForm } from "./UpdateUser";
 export { default as MessageFeed } from "./MessageFeed";
-export { default as UserBadge } from "./UserBadge";
+export { default as GetUserList } from "./GetUserList";

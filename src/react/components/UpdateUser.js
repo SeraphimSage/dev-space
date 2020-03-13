@@ -1,31 +1,30 @@
-import React from "react"
+import React from "react";
 import { connect } from "react-redux";
-import { updateUser } from "../../redux/users"
+import { updateUser } from "../../redux/users";
 import "./CreateUserForm.css";
 import "./LoginForm.css";
 
 class UpdateUserForm extends React.Component {
-          state = {
-            updateInfo: {
-             password: "",
-             about: "",
-             displayName: ""
-            },
-            updated: false
-          };
+	state = {
+		updateInfo: {
+			password: "",
+			about: "",
+			displayName: ""
+		},
+		updated: false
+	};
 
-          handleUpdateUser = e => {
-            e.preventDefault();
-            this.props.updateUser(this.state.updateInfo);
-            this.setState({updated:!this.state.updated});
-            };
-        
-          handleChange = e => {
-            const updateInfo = {...this.state.updateInfo}
-            updateInfo[e.target.name] = e.target.value 
-            this.setState({updateInfo: updateInfo})
-          };
+	handleUpdateUser = e => {
+		e.preventDefault();
+		this.props.updateUser(this.state.updateInfo);
+		this.setState({ updated: !this.state.updated });
+	};
 
+	handleChange = e => {
+		const updateInfo = { ...this.state.updateInfo };
+		updateInfo[e.target.name] = e.target.value;
+		this.setState({ updateInfo: updateInfo });
+	};
 
           render() {
             const { loading, error } = this.props;

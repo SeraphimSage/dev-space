@@ -1,31 +1,29 @@
-@import url('https://fonts.googleapis.com/css?family=Inder&display=swap');
-
-
-
+@import url("https://fonts.googleapis.com/css?family=Inder&display=swap");
 
 #menu {
-  background-color: var(--header-menu-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 1em;
-  border-radius: 1em;
+	background-color: var(--header-menu-color);
+	display: flex;
+
+	align-items: center;
+	padding: 0 1em;
+	border-radius: 1em;
 }
 
 #menu-links {
-  display: flex;
-  justify-content: right;
+	display: flex;
+	justify-content: flex-end;
+	flex-grow: 2;
 }
 
 #menu-links a {
-  padding-right: 0.5em;
-  color: var(--main-text-color);
-  text-decoration: underline;
-  cursor: pointer;
+	padding-right: 0.5em;
+	color: var(--main-link-color);
+	text-decoration: underline;
+	cursor: pointer;
 }
 
 #home-login {
-  color: var(--main-text-color);
-  text-align: center;
-  font-family: var(--main-text-font);
+	color: var(--main-text-color);
+	text-align: center;
+	font-family: var(--main-text-font);
 }
