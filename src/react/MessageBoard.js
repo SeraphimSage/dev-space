@@ -1,15 +1,18 @@
 import React from "react";
-import { Menu, MessageFeed } from "./components";
+import "../react/components/Menu.css";
+import { Menu, MessageFeed, GetUserList } from "./components";
+import { userIsAuthenticated } from "./HOCs";
 
 class MessageBoard extends React.Component {
 	render() {
 		return (
 			<>
-				<Menu />
+				<Menu isAuthenticated={this.props.isAuthenticated} />
 				<MessageFeed />
+				<GetUserList />
 			</>
 		);
 	}
 }
 
-export default MessageBoard;
+export default userIsAuthenticated(MessageBoard);
