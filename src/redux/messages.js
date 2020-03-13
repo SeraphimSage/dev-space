@@ -36,7 +36,18 @@ export const getMessages = () => (dispatch) => {
 		.catch(err => Promise.reject(dispatch(GET_MESSAGES.FAIL(err))))
 };
 
-
+const DELETE_MESSAGE = createActions("deleteMessage");
+export const deleteMessage = (messageId) => (dispatch, getState) => {
+  dispatch(DELETE_MESSAGE.START());
+  const token = getState().auth.login.result.token;
+  return fetch(url + `/${messageId}`, {
+    method: "DELETE",
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders }
+  })
+    .then(handleJsonResponse)
+    .then(result => dispatch(DELETE_MESSAGE.SUCCESS(result)))
+    .catch(err => Promise.reject(dispatch(DELETE_MESSAGE.FAIL(window.alert("you are not authorized to delete this message.")))));
+};
 
 
 export const reducers = {
@@ -45,6 +56,9 @@ export const reducers = {
     }),
     getMessages: createReducer(asyncInitialState, {
         ...asyncCases(GET_MESSAGES)
+    }),
+    deleteMessage: createReducer(asyncInitialState, {
+      ...asyncCases(DELETE_MESSAGE)
     })
   };
 

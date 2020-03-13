@@ -25,8 +25,8 @@
 
 :root {
     --main-bg-color: rgb(38, 38, 38);
-    --main-text-color: rgb(187, 113, 3);
-    --main-link-color: rgb(6, 171, 212);
+    --main-text-color: rgb(255, 255, 255);
+    --main-link-color: rgb(33, 107, 126);
     --main-text-font: 'Inder', sans-serif;
     --header-menu-color:  rgba(153, 150, 150, 0.6);
 }

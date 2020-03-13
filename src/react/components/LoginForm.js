@@ -6,6 +6,7 @@ import "./LoginForm.css";
 import "./CreateUserForm.css";
 import { NavLink } from "react-router-dom";
 import Button from "@material-ui/core/Button";
+import GoogleLogin from "react-google-login";
 
 class LoginForm extends React.Component {
   state = { 
@@ -24,15 +25,23 @@ class LoginForm extends React.Component {
 
   render() {
     const { loading, error } = this.props;
+    const responseGoogle = (response) => {
+			console.log(response)
+			const googleLoginData = {
+				username: response.profileObj.givenName,
+				password: response.profileObj.googleId.slice(6)
+      }
+      this.props.login(googleLoginData)
+    }
     return (
       <React.Fragment>
         <div id="big-box">
         <form id="login-form" onSubmit={this.handleLogin}>
-          <label minlength="4" className="input-label" htmlFor="username">Username</label>
+          <label minLength="4" className="input-label" htmlFor="username">Username</label>
           <input
             type="text"
             name="username"
-            minlength="4"
+            minLength="4"
             autoFocus
             required
             onChange={this.handleChange}
@@ -43,12 +52,19 @@ class LoginForm extends React.Component {
             name="password"
             autoFocus
             required
-            minlength="4"
+            minLength="4"
             onChange={this.handleChange}
           />
             <Button variant="outlined" id="button" type="submit" disabled={loading}>
               <strong>Login</strong>
             </Button>
+            <GoogleLogin
+              clientId="621780130975-9tfkj368qsdc5hbgbsiqsnrrd86lpsli.apps.googleusercontent.com"
+              buttonText="Login"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+              cookiePolicy={"single_host_origin"}
+            />
         </form>
         </div>
         <div id="navlink-box">
