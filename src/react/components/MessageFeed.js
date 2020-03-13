@@ -2,12 +2,12 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import "./Message.css";
-import TextField from "@material-ui/core/TextField";
 import { createMessage, getMessages, deleteMessage } from "../../redux/messages";
-import Button from "@material-ui/core/Button";
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import CreateMessageForm from "./CreateMessageForm";
+
+
 
 class MessageFeed extends React.Component {
   componentDidMount() {
