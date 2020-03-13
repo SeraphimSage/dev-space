@@ -6,6 +6,7 @@ import "./LoginForm.css";
 import "./CreateUserForm.css";
 import { NavLink } from "react-router-dom";
 import Button from "@material-ui/core/Button";
+import GoogleLogin from "react-google-login";
 
 class LoginForm extends React.Component {
   state = { 
@@ -24,6 +25,14 @@ class LoginForm extends React.Component {
 
   render() {
     const { loading, error } = this.props;
+    const responseGoogle = (response) => {
+			console.log(response)
+			const googleLoginData = {
+				username: response.profileObj.givenName,
+				password: response.profileObj.googleId.slice(6)
+      }
+      this.props.login(googleLoginData)
+    }
     return (
       <React.Fragment>
         <div id="big-box">
@@ -49,6 +58,13 @@ class LoginForm extends React.Component {
             <Button variant="outlined" id="button" type="submit" disabled={loading}>
               <strong>Login</strong>
             </Button>
+            <GoogleLogin
+              clientId="621780130975-9tfkj368qsdc5hbgbsiqsnrrd86lpsli.apps.googleusercontent.com"
+              buttonText="Login"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+              cookiePolicy={"single_host_origin"}
+            />
         </form>
         </div>
         <div id="navlink-box">
