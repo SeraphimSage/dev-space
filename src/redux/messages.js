@@ -20,7 +20,6 @@ export const createMessage = messageData => dispatch => {
             body: JSON.stringify(messageData)
 
         }
-        console.log(newMessagePayload)
     return fetch(url, newMessagePayload)
 		.then(handleJsonResponse)
 		.then(result => dispatch(CREATE_MESSAGE.SUCCESS(result)))

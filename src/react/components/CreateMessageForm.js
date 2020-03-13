@@ -1,5 +1,4 @@
 import React from "react";
-// import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import "./Message.css";
 import TextField from "@material-ui/core/TextField";
