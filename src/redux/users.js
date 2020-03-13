@@ -55,6 +55,7 @@ export const updateUser = updateData => (dispatch, getState) => {
 		.catch(err => Promise.reject(dispatch(UPDATE_USER.FAIL(err))));
 };
 
+<<<<<<< src/redux/users.js
 const GET_USER_LIST = createActions("getUserList");
 export const getUserList = () => dispatch => {
 	dispatch(GET_USER_LIST.START());
@@ -65,6 +66,20 @@ export const getUserList = () => dispatch => {
 		.then(handleJsonResponse)
 		.then(result => dispatch(GET_USER_LIST.SUCCESS(result)))
 		.catch(err => Promise.reject(dispatch(GET_USER_LIST.FAIL(err))));
+};
+
+const GET_USER = createActions("getUser");
+export const getUser = () => (dispatch, getState) => {
+  dispatch(GET_USER.START);
+  const username = getState().auth.login.result.username;
+    return fetch(url + `/${username}`, {
+      method: "GET",
+      headers: jsonHeaders 
+    }
+  )
+		.then(handleJsonResponse)
+		.then(result => dispatch(GET_USER.SUCCESS(result)))
+		.catch(err => Promise.reject(dispatch(GET_USER.FAIL(err))))
 };
 
 export const reducers = {
@@ -79,5 +94,35 @@ export const reducers = {
 	}),
 	getUserList: createReducer(asyncInitialState, {
 		...asyncCases(GET_USER_LIST)
-	})
+	}),
+	 getUser: createReducer(asyncInitialState, {
+      ...asyncCases(GET_USER)})
 };
+=======
+const GET_USER = createActions("getUser");
+export const getUser = () => (dispatch, getState) => {
+  dispatch(GET_USER.START);
+  const username = getState().auth.login.result.username;
+    return fetch(url + `/${username}`, {
+      method: "GET",
+      headers: jsonHeaders 
+    }
+  )
+		.then(handleJsonResponse)
+		.then(result => dispatch(GET_USER.SUCCESS(result)))
+		.catch(err => Promise.reject(dispatch(GET_USER.FAIL(err))))
+};
+
+
+
+export const reducers = {
+    createUser: createReducer(asyncInitialState, {
+      ...asyncCases(CREATE_USER) 
+    }),
+    getUser: createReducer(asyncInitialState, {
+      ...asyncCases(GET_USER)
+    })
+  };
+
+
+>>>>>>> src/redux/users.js
