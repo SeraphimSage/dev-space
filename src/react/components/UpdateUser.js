@@ -39,7 +39,7 @@ class UpdateUserForm extends React.Component {
                     name="password"
                     autoFocus
                     required
-                    minlength="4"
+                    minLength="4"
                     onChange={this.handleChange}
                   />
                   <label className="input-label" htmlFor="password">About</label>
@@ -48,7 +48,7 @@ class UpdateUserForm extends React.Component {
                     name="about"
                     autoFocus
                     required
-                    minlength="4"
+                    minLength="4"
                     onChange={this.handleChange}
                   />
                     <label className="input-label" htmlFor="displayName">Display Name</label>
@@ -57,7 +57,7 @@ class UpdateUserForm extends React.Component {
                     name="displayName"
                     autoFocus
                     required
-                    minlength="4"
+                    minLength="4"
                     onChange={this.handleChange}
                   />
                     <button id="button" type="submit" disabled={loading}>
@@ -72,6 +72,6 @@ class UpdateUserForm extends React.Component {
         }
 
 export default connect(
-    (state) => {},
+    null,
     { updateUser }
   )(UpdateUserForm);

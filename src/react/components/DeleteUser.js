@@ -22,6 +22,6 @@ class DeleteUserProfileBtn extends React.Component {
 }
 
 export default connect(
-    (state) => {},
+    null,
     { deleteUser }
   )(DeleteUserProfileBtn);
