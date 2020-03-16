@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Menu.css";
 import { connect } from "react-redux";
 import { logout } from "../../redux";
@@ -17,11 +17,11 @@ class Menu extends React.Component {
 				<img id="logo" src={KwitterLogo} alt="the kwitter logo" />
 				{this.props.isAuthenticated && (
 					<div id="menu-links">
-						<Link to="/messagefeed">Message Feed</Link>
-						<Link to="/profile/${username}">Profile</Link>
-						<Link to="/" onClick={this.handleLogout}>
+						<NavLink to="/messagefeed">Message Feed</NavLink>
+						<NavLink to="/profile/${username}">Profile</NavLink>
+						<NavLink to="/" onClick={this.handleLogout}>
 							Logout
-						</Link>
+						</NavLink>
 					</div>
 				)}
 			</div>
