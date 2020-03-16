@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import "./Message.css";
 import TextField from "@material-ui/core/TextField";
-import { createMessage} from "../../redux";
+import { createMessage, getMessages} from "../../redux";
 import Button from "@material-ui/core/Button";
 import { userIsAuthenticated } from "../HOCs";
 
@@ -52,7 +52,10 @@ export default connect(
     state => ({
         result: state.messages.createMessage.result,
         loading: state.messages.createMessage.loading,
-        error: state.messages.createMessage.error
+        error: state.messages.createMessage.error,
+        result: state.messages.getMessages.result,
+    loading: state.messages.getMessages.loading,
+    error: state.messages.getMessages.error
     }),
-    { createMessage }
+    { createMessage, getMessages }
     )(userIsAuthenticated(CreateMessageForm));
