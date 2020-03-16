@@ -2,66 +2,81 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import "./Message.css";
-import { createMessage, getMessages, deleteMessage } from "../../redux/messages";
-import IconButton from '@material-ui/core/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
+import {
+	createMessage,
+	getMessages,
+	deleteMessage
+} from "../../redux/messages";
 import CreateMessageForm from "./CreateMessageForm";
-
-
+import { Icon } from "semantic-ui-react";
 
 class MessageFeed extends React.Component {
-  componentDidMount() {
-    this.props.getMessages();
-  }
-  componentDidUpdate(previousProps) {
-    if (this.props.username !== previousProps.username) {
-        this.props.getMessages();
-    }
-  }
+	componentDidMount() {
+		this.props.getMessages();
+	}
+	componentDidUpdate(previousProps) {
+		if (this.props.username !== previousProps.username) {
+			this.props.getMessages();
+		}
+	}
 
-
-
-  render() {
-    let messageCompArray = [];
-    if (this.props.result) {
-      let messages = this.props.result.messages;
-      messageCompArray = messages.map(message => (
-          <div key={ message.id } id="ms-div">
-               <IconButton id="delete" aria-label="delete" onClick={this.handleDeleteMessage}>
-        <DeleteIcon />
-      </IconButton>
-            <p id="ms-text">{`"`}{ message.text }{`"`}</p>
-            <p id="username">{`~`}{message.username}</p>
-              <p id="ms-time">Posted on {message.createdAt.slice(0,19).split("T").join(" ")}{` GMT `}</p>
-          </div>
-      ))
-    }
-    return (
-      <React.Fragment>
-        <div id="message-box">
-        <CreateMessageForm></CreateMessageForm>
-          <h1 id="feed">Message Feed</h1>
-          <div>
-            {messageCompArray}
-          </div>
-          <NavLink to="/">
-            <p id="home-link">
-              {" "}
-              <u>Return To Home</u>
-            </p>
-          </NavLink>
-        </div>
-      </React.Fragment>
-    );
-  }
+	render() {
+		let messageCompArray = [];
+		if (this.props.result) {
+			let messages = this.props.result.messages;
+			messageCompArray = messages.map(message => (
+				<div key={message.id} id="ms-div">
+					<Icon.Group
+						id="delete"
+						aria-label="delete"
+						onClick={this.handleDeleteMessage}
+					>
+						<i className="trash icon"></i>
+					</Icon.Group>
+					<p id="ms-text">
+						{`"`}
+						{message.text}
+						{`"`}
+					</p>
+					<p id="username">
+						{`~`}
+						{message.username}
+					</p>
+					<p id="ms-time">
+						Posted on{" "}
+						{message.createdAt
+							.slice(0, 19)
+							.split("T")
+							.join(" ")}
+						{` GMT `}
+					</p>
+				</div>
+			));
+		}
+		return (
+			<React.Fragment>
+				<div id="message-box">
+					<CreateMessageForm></CreateMessageForm>
+					<h1 id="feed">Message Feed</h1>
+					<div>{messageCompArray}</div>
+					<NavLink to="/">
+						<p id="home-link">
+							{" "}
+							<u>Return To Home</u>
+						</p>
+					</NavLink>
+				</div>
+			</React.Fragment>
+		);
+	}
 }
 const mapStateToProps = state => {
-  return {
-    username: state.auth.login.result.username,
-    result: state.messages.getMessages.result,
-    loading: state.messages.getMessages.loading,
-    error: state.messages.getMessages.error
-  };
+	return {
+		username: state.auth.login.result.username,
+		result: state.messages.getMessages.result,
+		loading: state.messages.getMessages.loading,
+		error: state.messages.getMessages.error
+	};
 };
 const mapDispatchToProps = { createMessage, getMessages, deleteMessage };
 export default connect(mapStateToProps, mapDispatchToProps)(MessageFeed);
