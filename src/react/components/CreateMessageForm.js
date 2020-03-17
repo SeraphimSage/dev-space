@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import "./Message.css";
 import TextField from "@material-ui/core/TextField";
 import { createMessage, getMessages} from "../../redux";
-import Button from "@material-ui/core/Button";
 import { userIsAuthenticated } from "../HOCs";
 
 
