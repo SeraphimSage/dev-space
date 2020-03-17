@@ -1,5 +1,6 @@
 import React from "react";
 import "../react/components/Menu.css";
+import "../react/components/update.css";
 import { Menu, MessageFeed, GetUserList } from "./components";
 import { userIsAuthenticated } from "./HOCs";
 
@@ -8,8 +9,14 @@ class MessageBoard extends React.Component {
 		return (
 			<>
 				<Menu isAuthenticated={this.props.isAuthenticated} />
-				<MessageFeed />
-				<GetUserList />
+				<div id="row">
+					<div className="column">
+						<MessageFeed />
+					</div>
+					<div className="column">
+						<GetUserList />
+					</div>
+				</div>
 			</>
 		);
 	}

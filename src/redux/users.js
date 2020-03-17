@@ -68,9 +68,9 @@ export const getUserList = () => dispatch => {
 };
 
 const GET_USER = createActions("getUser");
-export const getUser = () => (dispatch, getState) => {
+export const getUser = username => (dispatch, getState) => {
 	dispatch(GET_USER.START);
-	const username = getState().auth.login.result.username;
+	username = username ? username : getState().auth.login.result.username;
 	return fetch(url + `/${username}`, {
 		method: "GET",
 		headers: jsonHeaders

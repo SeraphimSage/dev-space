@@ -22,7 +22,7 @@ class GetUserList extends React.Component {
 					<Feed.Event>
 						<Feed.Content>
 							<Feed.Summary>
-								<Link to={`/profile/${user.username}`}>
+								<Link to={`/profiles/${user.username}`}>
 									<h3 className="newestUsers">@{user.username}</h3>
 								</Link>
 							</Feed.Summary>

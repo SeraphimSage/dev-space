@@ -7,21 +7,26 @@ import Spinner from "react-spinkit";
 
 class UserBadge extends React.Component {
 	componentDidMount() {
-		if (this.props._username) {
-			this.props.getUser(this.props._username);
+		console.log(this.props.pathname);
+		if (this.props.pathname) {
+			let username = this.props.pathname.slice(10);
+			this.props.getUser(username);
+			console.log(username);
 		}
+		console.log("bang");
 	}
 
 	componentDidUpdate(prevProps) {
-		if (prevProps._username !== this.props._username) {
-			this.props.getUser(this.props._username);
+		if (prevProps.pathname !== this.props.pathname) {
+			let username = this.props.pathname;
+			this.props.getUser(username.slice(10));
+			console.log(username);
 		}
 	}
 	render() {
 		if (this.props.result === null) {
 			return <Spinner name="cicle" color="orange" />;
 		}
-		const user = this.props.result.user;
 		return (
 			<React.Fragment>
 				<Card>
@@ -32,23 +37,32 @@ class UserBadge extends React.Component {
 						maxwidth="20em"
 					/>
 					<Card.Content>
-						<Card.Header>{this.props.username} </Card.Header>
+						<Card.Header>
+							{this.props.result
+								? this.props.result.user.displayName
+								: "loading..."}{" "}
+						</Card.Header>
 						<Card.Meta>
 							<span>
 								<Label>
 									<Icon name="at" />
-									{this.props.username}
+									{this.props.result
+										? this.props.result.user.username
+										: "loading..."}
 								</Label>
 							</span>
 						</Card.Meta>
 						<Card.Meta>
 							<span className="date">
-								Created: {new Date(this.props.result.createdAt).toDateString()}
+								Created:{" "}
+								{this.props.result
+									? new Date(this.props.result.user.createdAt).toDateString()
+									: "loading..."}
 							</span>
 						</Card.Meta>
 						<Card.Description>
-							{this.props.about
-								? this.props.about
+							{this.props.result.about
+								? this.props.result.user.about
 								: "Stay tuned for the about details"}{" "}
 						</Card.Description>
 					</Card.Content>
@@ -60,26 +74,19 @@ class UserBadge extends React.Component {
 }
 
 const mapStateToProps = state => {
-	if (state.users.getUser.result) {
-		return {
-			loggedIn: state.auth.login.result.username,
-			username: state.users.getUser.result.user.username,
-			pictureLocation: state.users.getUser.result.user.pictureLocation,
-			displayName: state.users.getUser.result.user.displayName,
-			about: state.users.getUser.result.user.about,
-			googleId: state.users.getUser.result.user.googleId,
-			createdAt: state.users.getUser.result.user.createdAt,
-			updatedAt: state.users.getUser.result.user.updatedAt,
-			result: state.users.getUser.result.user,
-			loading: state.messages.getMessages.loading,
-			error: state.messages.getMessages.error
-		};
-	}
 	return {
-		username: "loading...",
-		result: "loading...",
-		loading: "loading...",
-		error: "loading..."
+		loggedIn: state.auth.login.result.username,
+		// username: state.users.getUser.result.user.username,
+		// pictureLocation: state.users.getUser.result.user.pictureLocation,
+		// displayName: state.users.getUser.result.user.displayName,
+		// about: state.users.getUser.result.user.about,
+		// googleId: state.users.getUser.result.user.googleId,
+		// createdAt: state.users.getUser.result.user.createdAt,
+		// updatedAt: state.users.getUser.result.user.updatedAt,
+		result: state.users.getUser.result,
+		loading: state.messages.getMessages.loading,
+		error: state.messages.getMessages.error,
+		pathname: state.router.location.pathname
 	};
 };
 const mapDispatchToProps = { getUser };
