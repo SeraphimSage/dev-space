@@ -3,10 +3,7 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import "./Message.css";
 import { createMessage, getMessages, deleteMessage } from "../../redux/messages";
-import IconButton from '@material-ui/core/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
 import CreateMessageForm from "./CreateMessageForm";
-
 
 
 class MessageFeed extends React.Component {
@@ -27,9 +24,9 @@ class MessageFeed extends React.Component {
       let messages = this.props.result.messages;
       messageCompArray = messages.map(message => (
           <div key={ message.id } id="ms-div">
-               <IconButton id="delete" aria-label="delete" onClick={this.handleDeleteMessage}>
-        <DeleteIcon />
-      </IconButton>
+            <button class="ui button">
+               <i class="trash alternate icon">onClick={this.handleDeleteMessage}</i>
+               </button>
             <p id="ms-text">{`"`}{ message.text }{`"`}</p>
             <p id="username">{`~`}{message.username}</p>
               <p id="ms-time">Posted on {message.createdAt.slice(0,19).split("T").join(" ")}{` GMT `}</p>

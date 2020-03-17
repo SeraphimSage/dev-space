@@ -5,7 +5,6 @@ import { login } from "../../redux";
 import "./LoginForm.css";
 import "./CreateUserForm.css";
 import { NavLink } from "react-router-dom";
-import Button from "@material-ui/core/Button";
 import GoogleLogin from "react-google-login";
 
 class LoginForm extends React.Component {
@@ -55,9 +54,9 @@ class LoginForm extends React.Component {
             minLength="4"
             onChange={this.handleChange}
           />
-            <Button variant="outlined" id="button" type="submit" disabled={loading}>
+            <button  id="ui button" type="submit" disabled={loading}>
               <strong>Login</strong>
-            </Button>
+            </button>
             <GoogleLogin
               clientId="621780130975-9tfkj368qsdc5hbgbsiqsnrrd86lpsli.apps.googleusercontent.com"
               buttonText="Login"
@@ -69,9 +68,9 @@ class LoginForm extends React.Component {
         </div>
         <div id="navlink-box">
             <NavLink  to="/createuser">
-              <Button variant="outlined" id="button" type="" disabled={loading}>
+              <button  id="ui button" type="" disabled={loading}>
                 <strong>Create New User</strong>
-              </Button>
+              </button>
             </NavLink>
             </div>
         {loading && <Spinner name="circle" color="blue" />}

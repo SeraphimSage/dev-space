@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./Message.css";
-import TextField from "@material-ui/core/TextField";
 import { createMessage, getMessages} from "../../redux";
 import { userIsAuthenticated } from "../HOCs";
 
@@ -27,8 +26,8 @@ class CreateMessageForm extends React.Component {
         return (
             <React.Fragment>
             <form id="cm-form" type="submit">
-            <TextField
-              id="standard-multiline-flexible"
+            <input 
+              id="ui input"
               label="Post a messsage!"
               multiline
               type="text"
@@ -37,9 +36,9 @@ class CreateMessageForm extends React.Component {
               placeholder="What's on your mind today?"
               onChange={this.handleChange}
             />
-            <Button id="button" onClick={this.handleCreateMessage}>
+            <button id="ui button" onClick={this.handleCreateMessage}>
               Post your message
-            </Button>
+            </button>
           </form>
           </React.Fragment>
         );   

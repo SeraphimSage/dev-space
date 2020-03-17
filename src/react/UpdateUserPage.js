@@ -1,6 +1,8 @@
 import React from "react";
 import { Menu, UpdateUserForm } from "./components";
 import "./components/update.css";
+import { userIsAuthenticated } from "./HOCs";
+
 
 
 class UpdateUserPage extends React.Component {
@@ -16,4 +18,4 @@ class UpdateUserPage extends React.Component {
 }
 
 
-export default UpdateUserPage;
+export default userIsAuthenticated(UpdateUserPage);
