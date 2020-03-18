@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { getUser } from "../../redux/users";
 import { Card, Icon, Image, Label } from "semantic-ui-react";
 import Spinner from "react-spinkit";
-//import UploadUserPicture from "./UploadUserPicture";
 
 class UserBadge extends React.Component {
 	componentDidMount() {
@@ -81,13 +80,6 @@ class UserBadge extends React.Component {
 const mapStateToProps = state => {
 	return {
 		loggedIn: state.auth.login.result.username,
-		// username: state.users.getUser.result.user.username,
-		// pictureLocation: state.users.getUser.result.user.pictureLocation,
-		// displayName: state.users.getUser.result.user.displayName,
-		// about: state.users.getUser.result.user.about,
-		// googleId: state.users.getUser.result.user.googleId,
-		// createdAt: state.users.getUser.result.user.createdAt,
-		// updatedAt: state.users.getUser.result.user.updatedAt,
 		result: state.users.getUser.result,
 		loading: state.messages.getMessages.loading,
 		error: state.messages.getMessages.error,

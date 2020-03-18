@@ -29,12 +29,15 @@
 
 #mainBody {
 	flex-grow: 2;
+	margin: 5px;
 }
 
 #getUserList {
 	flex-grow: 1;
+	margin: 5px;
 }
 
 #placeHolder {
 	flex-grow: 1;
+	margin: 5px;
 }
