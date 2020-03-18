@@ -4,6 +4,7 @@ import "./Menu.css";
 import { connect } from "react-redux";
 import { logout } from "../../redux";
 import KwitterLogo from "./KwitterLogo.png";
+import GetUserForm from "./GetUserForm";
 
 class Menu extends React.Component {
 	handleLogout = event => {
@@ -17,6 +18,7 @@ class Menu extends React.Component {
 				<img id="logo" src={KwitterLogo} alt="the kwitter logo" />
 				{this.props.isAuthenticated && (
 					<div id="menu-links">
+						<GetUserForm />
 						<Link to="/">Your Profile</Link>
 						<Link to="/messagefeed">Message Feed</Link>
 						<Link to="/" onClick={this.handleLogout}>

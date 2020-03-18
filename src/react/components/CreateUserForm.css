@@ -7,7 +7,7 @@
 }
 
 #error {
-	color: red;
+	color: orange;
 	font-family: var(--main-text-font);
 	text-align: center;
 }
@@ -25,7 +25,7 @@
 :root {
 	--main-bg-color: rgb(38, 38, 38);
 	--main-text-color: rgb(255, 255, 255);
-	--main-link-color: hsl(192, 76%, 48%);
+	--main-link-color: hsl(192, 96%, 56%);
 	--main-text-font: "Inder", sans-serif;
 	--header-menu-color: rgba(153, 150, 150, 0.6);
 }
@@ -73,4 +73,9 @@ input:invalid:required {
 
 input:valid {
 	border: 2px solid rgb(2, 253, 15);
+}
+
+#getUserFormSearch {
+	color: var(--main-text-color);
+	font-weight: bold;
 }

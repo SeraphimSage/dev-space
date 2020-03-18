@@ -6,20 +6,16 @@ import Spinner from "react-spinkit";
 
 class UserBadge extends React.Component {
 	componentDidMount() {
-		console.log(this.props.pathname);
 		if (this.props.pathname) {
 			let username = this.props.pathname.slice(10);
 			this.props.getUser(username);
-			console.log(username);
 		}
-		console.log("bang");
 	}
 
 	componentDidUpdate(prevProps) {
 		if (prevProps.pathname !== this.props.pathname) {
 			let username = this.props.pathname;
 			this.props.getUser(username.slice(10));
-			console.log(this.props.result.user.pictureLocation);
 		}
 	}
 	render() {
