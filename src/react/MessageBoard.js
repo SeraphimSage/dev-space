@@ -10,10 +10,12 @@ class MessageBoard extends React.Component {
 			<>
 				<Menu isAuthenticated={this.props.isAuthenticated} />
 				<div id="row">
-					<div className="column">
+					<div className="column" id="placeHolder"></div>
+					<div className="column" id="mainBody">
 						<MessageFeed />
 					</div>
-					<div className="column">
+					<div className="column" id="getUserList">
+						<h3>Check out our newest users!</h3>
 						<GetUserList />
 					</div>
 				</div>

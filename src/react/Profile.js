@@ -20,7 +20,8 @@ class Profile extends React.Component {
 			<>
 				<Menu isAuthenticated={this.props.isAuthenticated} />
 				<div id="row">
-					<div className="column">
+					<div className="column" id="placeHolder"></div>
+					<div className="column" id="mainBody">
 						<h2 id="profile">Profile</h2>
 						<UserBadge _username={this.state.username} />
 						<DeleteUserProfileBtn
@@ -30,7 +31,8 @@ class Profile extends React.Component {
 						<h2 id="update">Update Username or Password</h2>
 						<UpdateUserForm />
 					</div>
-					<div className="column">
+					<div className="column" id="getUserList">
+						<h3>Check out our newest users!</h3>
 						<GetUserList />
 					</div>
 				</div>

@@ -20,7 +20,7 @@ class UserBadge extends React.Component {
 		if (prevProps.pathname !== this.props.pathname) {
 			let username = this.props.pathname;
 			this.props.getUser(username.slice(10));
-			console.log(username);
+			console.log(this.props.result.user.pictureLocation);
 		}
 	}
 	render() {
@@ -31,7 +31,12 @@ class UserBadge extends React.Component {
 			<React.Fragment>
 				<Card>
 					<Image
-						src="https://react.semantic-ui.com/images/avatar/large/matthew.png"
+						src={
+							this.props.result.user.pictureLocation
+								? "https://kwitta-api.herokuapp.com" +
+								  this.props.result.user.pictureLocation
+								: "http://simpleicon.com/wp-content/uploads/user1.svg"
+						}
 						wrapped
 						ui={false}
 						maxwidth="20em"
