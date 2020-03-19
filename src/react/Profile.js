@@ -10,26 +10,6 @@ class Profile extends React.Component {
 	state = {
 		username: this.props.match.params.username
 	};
-  render() {
-    return (
-      <>
-        <Menu isAuthenticated={this.props.isAuthenticated} />
-        <h2 id="profile">Profile</h2>
-        <UserBadge/>
-        <DeleteUserProfileBtn/>
-        <NavLink to="/updateuser">
-            Update Username or Password
-        </NavLink>
-        </>
-    );
-  }
-}
-
-	componentDidUpdate(prevProps) {
-		if (prevProps.location.pathname !== this.props.location.pathname) {
-			this.setState({ username: this.props.match.params.username });
-		}
-	}
 	render() {
 		return (
 			<>
