@@ -12,6 +12,7 @@
 #menu-links {
 	display: flex;
 	justify-content: flex-end;
+	flex-basis: auto;
 	flex-grow: 2;
 }
 
