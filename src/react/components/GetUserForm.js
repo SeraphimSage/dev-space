@@ -13,7 +13,7 @@ class GetUserForm extends React.Component {
 	handleSubmit = e => {
 		e.preventDefault();
 		this.props.getUser(this.state);
-		console.log(this.state.user);
+		console.log(this.state);
 		document.getElementById("lookup-user-form").reset();
 	};
 
