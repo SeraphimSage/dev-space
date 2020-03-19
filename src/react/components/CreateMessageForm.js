@@ -29,10 +29,8 @@ class CreateMessageForm extends React.Component {
             <input 
               id="ui input"
               label="Post a messsage!"
-              multiline
               type="text"
               name="text"
-              fullWidth
               placeholder="What's on your mind today?"
               onChange={this.handleChange}
             />

@@ -5,7 +5,7 @@ import Profile from "./Profile";
 import NotFound from "./NotFound";
 import CreateUser from "./CreateUser";
 import MessageBoard from "./MessageBoard";
-import UpdateUserPage from "./UpdateUserPage";
+import UpdateUserPage from "../react/UpdateUserPage";
 
 
 class App extends React.Component {
@@ -16,8 +16,8 @@ class App extends React.Component {
         <Route exact path="/profiles/:username" component={Profile} />
         <Route exact path="/createuser" component={CreateUser} />
         <Route exact path="/messagefeed" component={MessageBoard} />
+        <Route exact path="/updateuser" component={UpdateUserPage} />
         <Route path="*" component={NotFound} />
-        <Route path="/updateuser" component={UpdateUserPage} />
       </Switch>
     );
   }

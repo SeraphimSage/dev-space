@@ -6,7 +6,7 @@ import "./LoginForm.css";
 
 class DeleteUserProfileBtn extends React.Component {
 
-    handleDelete = (e) => {
+    handleDelete = () => {
         
         if(window.confirm("Are you sure you would like to delete your account?") === true){
         this.props.deleteUser(this.state)

@@ -17,7 +17,8 @@
 
 #menu-links a {
 	padding-right: 0.5em;
-	color: var(--main-link-color);
+	color: whitesmoke;
+	font-family: var(--main-text-font);
 	text-decoration: underline;
 	cursor: pointer;
 }
