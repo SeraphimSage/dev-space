@@ -6,19 +6,18 @@ import NotFound from "./NotFound";
 import CreateUser from "./CreateUser";
 import MessageBoard from "./MessageBoard";
 
-
 class App extends React.Component {
-  render() {
-    return (
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/profiles/:username" component={Profile} />
-        <Route exact path="/createuser" component={CreateUser} />
-        <Route exact path="/messagefeed" component={MessageBoard} />
-        <Route path="*" component={NotFound} />
-      </Switch>
-    );
-  }
+	render() {
+		return (
+			<Switch>
+				<Route exact path="/" component={Home} />
+				<Route exact path="/profiles/:username" component={Profile} />
+				<Route exact path="/createuser" component={CreateUser} />
+				<Route exact path="/messagefeed" component={MessageBoard} />
+				<Route path="*" component={NotFound} />
+			</Switch>
+		);
+	}
 }
 
 export default App;
