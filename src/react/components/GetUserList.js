@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Spinner from "react-spinkit";
 import { getUserList } from "../../redux/users";
 import { Feed } from "semantic-ui-react";
+import "./GetUserList.css";
 
 class GetUserList extends React.Component {
 	componentDidMount() {
@@ -17,12 +18,12 @@ class GetUserList extends React.Component {
 		const user = this.props.result.users;
 		return user.map(user => {
 			return (
-				<Feed size="large" key={user.username}>
+				<Feed id="newestUsers" size="large" key={user.username}>
 					<Feed.Event>
 						<Feed.Content>
 							<Feed.Summary>
-								<Link to={`/profile/${user.username}`}>
-									<h3 className="newestUsers">@{user.username}</h3>
+								<Link to={`/profiles/${user.username}`}>
+									<p className="newestUsers">@{user.username}</p>
 								</Link>
 							</Feed.Summary>
 						</Feed.Content>

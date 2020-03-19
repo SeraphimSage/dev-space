@@ -7,7 +7,6 @@ import CreateUser from "./CreateUser";
 import MessageBoard from "./MessageBoard";
 import UpdateUserPage from "../react/UpdateUserPage";
 
-
 class App extends React.Component {
   render() {
     return (
