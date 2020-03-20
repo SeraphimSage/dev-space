@@ -5,6 +5,8 @@ import { getUser } from "../../redux/users";
 import "./CreateUserForm.css";
 import "./LoginForm.css";
 
+
+
 class GetUserForm extends React.Component {
 	handleChange = e => {
 		this.setState({ [e.target.name]: e.target.value });
@@ -12,8 +14,7 @@ class GetUserForm extends React.Component {
 
 	handleSubmit = e => {
 		e.preventDefault();
-		this.props.getUser(this.state);
-		console.log(this.state);
+		this.props.getUser(this.state.username);
 		document.getElementById("lookup-user-form").reset();
 	};
 
@@ -31,10 +32,8 @@ class GetUserForm extends React.Component {
 					/>
 				</form>
 				{loading && <Spinner name="circle" color="blue" />}
-				{error && (
-					<p id="getUserFormSearch" style={{ color: "orange" }}>
-						{error.message}
-					</p>
+				{error && (error.message !== null) &&(
+					window.alert("Sorry no such member.")
 				)}
 			</React.Fragment>
 		);

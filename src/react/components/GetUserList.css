@@ -6,3 +6,7 @@ p {
 	color: var(--main-text-color);
 	font-size: 1.5em;
 }
+
+a {
+	text-decoration: none;
+}

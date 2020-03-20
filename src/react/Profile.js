@@ -4,7 +4,6 @@ import { userIsAuthenticated } from "./HOCs";
 import { DeleteUserProfileBtn } from "./components";
 import "./components/update.css";
 import { UserBadge } from "./components";
-import { NavLink } from "react-router-dom";
 
 class Profile extends React.Component {
 	state = {

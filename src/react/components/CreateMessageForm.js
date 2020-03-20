@@ -26,10 +26,10 @@ class CreateMessageForm extends React.Component {
 					<TextArea
 						id="standard-multiline-flexible"
 						label="Post a messsage!"
-						multiline
+						multiline="true"
 						type="text"
 						name="text"
-						fullWidth
+						fullwidth="true"
 						placeholder="What's on your mind today?"
 						onChange={this.handleChange}
 					/>
@@ -47,9 +47,6 @@ export default connect(
         result: state.messages.createMessage.result,
         loading: state.messages.createMessage.loading,
         error: state.messages.createMessage.error,
-        result: state.messages.getMessages.result,
-    loading: state.messages.getMessages.loading,
-    error: state.messages.getMessages.error
     }),
     { createMessage, getMessages }
     )(userIsAuthenticated(CreateMessageForm));

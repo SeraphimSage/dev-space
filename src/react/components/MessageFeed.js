@@ -12,9 +12,6 @@ class MessageFeed extends React.Component {
   componentDidMount() {
     this.props.getMessages();
   }
-  
-
-
 
   render() {
     const username = this.props.loggedInUsername;
@@ -24,7 +21,7 @@ class MessageFeed extends React.Component {
       messageCompArray = messages.map(message => (
         <div key={ message.id } id="ms-div">
             {message.username === username && (
-              <TrashCanIcon/>
+              <TrashCanIcon messageId={message.id}/>
             )}
             <p id="ms-text">{`"`}{ message.text }{`"`}</p>
             <p id="username">{`~`}{message.username}</p>
