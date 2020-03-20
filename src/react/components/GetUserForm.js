@@ -32,10 +32,8 @@ class GetUserForm extends React.Component {
 					/>
 				</form>
 				{loading && <Spinner name="circle" color="blue" />}
-				{error && (
-					<p id="getUserFormSearch" >
-						{error.message}
-					</p>
+				{error && (error.message !== null) &&(
+					window.alert("Sorry no such member.")
 				)}
 			</React.Fragment>
 		);
