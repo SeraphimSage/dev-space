@@ -20,11 +20,7 @@
     "redux": "^4.0.4",
     "redux-auth-wrapper": "^2.1.0",
     "redux-logger": "^3.0.6",
-<<<<<<< HEAD
     "semantic-ui": "^2.4.2",
-=======
-    "semantic-ui-css": "^2.4.1",
->>>>>>> 8559a8d705bde3ddafb16364bc70607293e17a1c
     "semantic-ui-react": "^0.88.2"
   },
   "scripts": {
