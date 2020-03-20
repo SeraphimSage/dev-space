@@ -36,9 +36,10 @@ export const getMessages = () => (dispatch) => {
 };
 
 const DELETE_MESSAGE = createActions("deleteMessage");
-export const deleteMessage = (messageId) => (dispatch, getState) => {
+export const deleteMessage = () => (dispatch, getState) => {
   dispatch(DELETE_MESSAGE.START());
   const token = getState().auth.login.result.token;
+  const messageId = getState().messsages.getMessages.result.messages.id;
   return fetch(url + `/${messageId}`, {
     method: "DELETE",
     headers: { Authorization: "Bearer " + token, ...jsonHeaders }

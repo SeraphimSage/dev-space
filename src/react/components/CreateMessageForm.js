@@ -1,10 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./Message.css";
-import TextField from "@material-ui/core/TextField";
 import { createMessage} from "../../redux";
-import Button from "@material-ui/core/Button";
 import { userIsAuthenticated } from "../HOCs";
+import { Button, Form, TextArea } from 'semantic-ui-react'
 
 
 class CreateMessageForm extends React.Component {
@@ -27,21 +26,21 @@ class CreateMessageForm extends React.Component {
     render() {
         return (
             <React.Fragment>
-            <form id="cm-form" type="submit">
-            <TextField
-              id="standard-multiline-flexible"
-              label="Post a messsage!"
-              multiline
-              type="text"
-              name="text"
-              fullWidth
-              placeholder="What's on your mind today?"
-              onChange={this.handleChange}
-            />
+            <Form id="cm-form" type="submit">
+              <TextArea
+                id="standard-multiline-flexible"
+                label="Post a messsage!"
+                multiline
+                type="text"
+                name="text"
+                fullWidth
+                placeholder="What's on your mind today?"
+                onChange={this.handleChange}
+              />
             <Button id="button" onClick={this.handleCreateMessage}>
               Post your message
             </Button>
-          </form>
+          </Form>
           </React.Fragment>
         );   
     }
