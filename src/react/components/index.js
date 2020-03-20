@@ -7,3 +7,4 @@ export { default as MessageFeed } from "./MessageFeed";
 export { default as GetUserList } from "./GetUserList";
 export { default as UserBadge } from "./UserBadge";
 export { default as GetUserForm } from "./GetUserForm";
+export { default as SetUserPicture} from "./SetUserPicture";

@@ -80,6 +80,22 @@ export const getUser = username => (dispatch, getState) => {
 		.catch(err => Promise.reject(dispatch(GET_USER.FAIL(err))));
 };
 
+const SET_USER_PICTURE = createActions("setUserPicture");
+export const setUserPicture = FormData => (dispatch, getState) => {
+	dispatch(SET_USER_PICTURE.START());
+	const token = getState().auth.login.result.token;
+	const username = getState().auth.login.result.username;
+
+	return fetch(`${url}/${username}/picture`, {
+		method: "PUT",
+		headers: { Authorization: "Bearer " + token, ...jsonHeaders },
+		body: JSON.stringify(FormData)
+	})
+		.then(handleJsonResponse)
+		.then(result => dispatch(SET_USER_PICTURE.SUCCESS(result)))
+		.catch(err => Promise.reject(dispatch(SET_USER_PICTURE.FAIL(err))));
+};
+
 export const reducers = {
 	createUser: createReducer(asyncInitialState, {
 		...asyncCases(CREATE_USER)
@@ -95,5 +111,8 @@ export const reducers = {
 	}),
 	getUser: createReducer(asyncInitialState, {
 		...asyncCases(GET_USER)
+	}),
+	setUserPicture: createReducer(asyncInitialState, {
+		...asyncCases(SET_USER_PICTURE)
 	})
 };
