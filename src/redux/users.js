@@ -68,17 +68,16 @@ export const getUserList = () => dispatch => {
 };
 
 const GET_USER = createActions("getUser");
-export const getUser = () => (dispatch, getState) => {
-  dispatch(GET_USER.START);
-  const username = getState().auth.login.result.username;
-    return fetch(url + `/${username}`, {
-      method: "GET",
-      headers: jsonHeaders 
-    }
-  )
+export const getUser = username => (dispatch, getState) => {
+	dispatch(GET_USER.START);
+	username = username ? username : getState().auth.login.result.username;
+	return fetch(url + `/${username}`, {
+		method: "GET",
+		headers: jsonHeaders
+	})
 		.then(handleJsonResponse)
 		.then(result => dispatch(GET_USER.SUCCESS(result)))
-		.catch(err => Promise.reject(dispatch(GET_USER.FAIL(err))))
+		.catch(err => Promise.reject(dispatch(GET_USER.FAIL(err))));
 };
 
 export const reducers = {

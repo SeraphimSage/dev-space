@@ -1,15 +1,43 @@
-@import url('https://fonts.googleapis.com/css?family=Inder&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Inder&display=swap");
 
-
-
-#profile, #update{
-    color: var(--main-text-color);
-    font-family: var(--main-text-font);
-    text-align: center;
+#profile,
+#update {
+	color: var(--main-text-color);
+	font-family: var(--main-text-font);
+	text-align: center;
 }
 
 #deleteButtonBox {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
+#row {
+	display: flex;
+	flex-direction: row;
+	margin: auto;
+	justify-content: center;
+	align-content: space-around;
+	padding-left: 1% 20% 0% 20%;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	padding-left: 1% 20% 0% 20%;
+}
+
+#mainBody {
+	flex-grow: 2;
+	margin: 5px;
+}
+
+#getUserList {
+	flex-grow: 1;
+	margin: 5px;
+}
+
+#placeHolder {
+	flex-grow: 1;
+	margin: 5px;
+}

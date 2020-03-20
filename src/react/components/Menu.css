@@ -3,7 +3,6 @@
 #menu {
 	background-color: var(--header-menu-color);
 	display: flex;
-
 	align-items: center;
 	padding: 0 1em;
 	border-radius: 1em;
@@ -12,13 +11,19 @@
 #menu-links {
 	display: flex;
 	justify-content: flex-end;
+	flex-basis: auto;
 	flex-grow: 2;
 }
 
 #menu-links a {
-	padding-right: 0.5em;
-	color: var(--main-link-color);
-	text-decoration: underline;
+	display: block;
+	position: relative;
+	font-weight: bold;
+	top: -0.5em;
+	padding:0.5em 0.5em;
+	color: whitesmoke;
+	font-family: var(--main-text-font);
+	text-decoration: none;
 	cursor: pointer;
 }
 
@@ -27,3 +32,15 @@
 	text-align: center;
 	font-family: var(--main-text-font);
 }
+
+#menu-links a:hover{
+	background-color:var(--main-bg-color);
+	border-radius: 10%;
+}
+
+
+#menu-links a:active{
+	background-color: var(--main-bg-color);
+}
+
+

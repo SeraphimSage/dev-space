@@ -22,7 +22,8 @@ export const createMessage = messageData => dispatch => {
         }
     return fetch(url, newMessagePayload)
 		.then(handleJsonResponse)
-		.then(result => dispatch(CREATE_MESSAGE.SUCCESS(result)))
+    .then(result => {dispatch(CREATE_MESSAGE.SUCCESS(result))
+    dispatch(getMessages())})
 		.catch(err => Promise.reject(dispatch(CREATE_MESSAGE.FAIL(err))))
 };
 
@@ -45,7 +46,8 @@ export const deleteMessage = () => (dispatch, getState) => {
     headers: { Authorization: "Bearer " + token, ...jsonHeaders }
   })
     .then(handleJsonResponse)
-    .then(result => dispatch(DELETE_MESSAGE.SUCCESS(result)))
+    .then(result => {dispatch(DELETE_MESSAGE.SUCCESS(result))
+    dispatch(getMessages())})
     .catch(err => Promise.reject(dispatch(DELETE_MESSAGE.FAIL(window.alert("you are not authorized to delete this message.")))));
 };
 

@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "base": "semantic/",
+=======
+  "base": "semantic",
+>>>>>>> 8559a8d705bde3ddafb16364bc70607293e17a1c
   "paths": {
     "source": {
       "config": "src/theme.config",
