@@ -29,7 +29,8 @@ export const createMessage = messageData => dispatch => {
 
 const GET_MESSAGES = createActions("getMessages");
 export const getMessages = () => (dispatch) => {
-	dispatch({type: GET_MESSAGES.START});
+  dispatch(GET_MESSAGES.START());
+  console.log("hello")
     return fetch(url + `?limit=10&offset=0`)
 		.then(handleJsonResponse)
 		.then(result => dispatch(GET_MESSAGES.SUCCESS(result)))
@@ -47,7 +48,7 @@ export const deleteMessage = (messagesId) => (dispatch, getState) => {
     .then(handleJsonResponse)
     .then(result => {dispatch(DELETE_MESSAGE.SUCCESS(result))
     dispatch(getMessages())})
-    .catch(err => Promise.reject(dispatch(DELETE_MESSAGE.FAIL(window.alert("you are not authorized to delete this message.")))));
+    .catch(err => Promise.reject(dispatch(DELETE_MESSAGE.FAIL())));
 };
 
 
