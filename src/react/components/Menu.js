@@ -12,6 +12,8 @@ class Menu extends React.Component {
 		this.props.logout();
 	};
 
+	handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
 	render() {
 		return (
 			<div id="menu">
@@ -19,7 +21,7 @@ class Menu extends React.Component {
 				{this.props.isAuthenticated && (
 					<div id="menu-links">
 						<GetUserForm />
-						<Link to="/">Your Profile</Link>
+						<Link to="/" onclick={this.handleItemClick}> Your Profile</Link>
 						<Link to="/messagefeed">Message Feed</Link>
 						<Link to="/" onClick={this.handleLogout}>
 							Logout
