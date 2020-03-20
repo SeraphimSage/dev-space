@@ -26,10 +26,10 @@ class CreateMessageForm extends React.Component {
 					<TextArea
 						id="standard-multiline-flexible"
 						label="Post a messsage!"
-						multiline
+						multiline="true"
 						type="text"
 						name="text"
-						fullWidth
+						fullwidth="true"
 						placeholder="What's on your mind today?"
 						onChange={this.handleChange}
 					/>
