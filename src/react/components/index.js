@@ -8,4 +8,4 @@ export { default as GetUserList } from "./GetUserList";
 export { default as UserBadge } from "./UserBadge";
 export { default as CreateMessageForm } from "./CreateMessageForm";
 export { default as GetUserForm } from "./GetUserForm";
-export { default as AddLike } from "./AddLike";
+export { default as ToggleLike } from "./ToggleLike";
