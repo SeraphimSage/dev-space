@@ -30,7 +30,6 @@ export const createMessage = messageData => dispatch => {
 const GET_MESSAGES = createActions("getMessages");
 export const getMessages = () => (dispatch) => {
   dispatch(GET_MESSAGES.START());
-  console.log("hello")
     return fetch(url + `?limit=10&offset=0`)
 		.then(handleJsonResponse)
 		.then(result => dispatch(GET_MESSAGES.SUCCESS(result)))
@@ -38,11 +37,10 @@ export const getMessages = () => (dispatch) => {
 };
 
 const DELETE_MESSAGE = createActions("deleteMessage");
-export const deleteMessage = () => (dispatch, getState) => {
+export const deleteMessage = (messagesId) => (dispatch, getState) => {
   dispatch(DELETE_MESSAGE.START());
   const token = getState().auth.login.result.token;
-  const messageId = getState().messsages.getMessages.result.messages.id;
-  return fetch(url + `/${messageId}`, {
+  return fetch(url + `/${messagesId}`, {
     method: "DELETE",
     headers: { Authorization: "Bearer " + token, ...jsonHeaders }
   })

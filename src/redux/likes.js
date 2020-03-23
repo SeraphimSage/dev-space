@@ -13,18 +13,22 @@ const url = domain + "/likes";
 
 const ADD_LIKE = createActions("addLike");
 export const addLike = (messageId) => (dispatch, getState) => {
-    dispatch({type: ADD_LIKE.START});
-    const token = getState().auth.login.result.token;
+    dispatch(ADD_LIKE.START);
+	const token = getState().auth.login.result.token;
+	const messageBody = {
+		messageId: messageId
+	}
+	const newMessagePayload = {
+		method: "POST",
+		headers: { ...jsonHeaders, Authorization: "Bearer " + token},
+		body: JSON.stringify(messageBody)
 
-	return fetch(url, {
-		method: 'POST',
-		headers: { Authorization: 'Bearer ' + token, ...jsonHeaders },
-		body: JSON.stringify(messageId)
-	})
+	}
+	return fetch(url, newMessagePayload)
 		.then(handleJsonResponse)
         .then(result => dispatch(ADD_LIKE.SUCCESS(result)))
         .catch(err => Promise.reject(dispatch(ADD_LIKE.FAIL(err))));
-};
+}
 
 export const reducers = {
     addLike: createReducer(asyncInitialState, {

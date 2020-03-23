@@ -7,20 +7,19 @@ import { addLike, getMessages } from '../../redux'
 class AddLike extends React.Component {
 
     handleAddLike = (e, messageId) => {
-        console.log("treytrey")
+        console.log(messageId);
         e.preventDefault();
         this.props.addLike(messageId);
     }
 
 	render() {
 		return (
-			<Button key={message.id} as='div' labelPosition='right'>
-                <Button icon onClick={this.handleAddLike}>
+			<Button key={this.props.messageId} as='div' labelPosition='right'>
+                <Button icon onClick={(e) => this.handleAddLike(e, this.props.messageId)}>
                     <Icon name='heart' />
                         Like
                 </Button>
                 <Label as='a' basic pointing='left'>
-                    {}
                 </Label>
             </Button>
         );

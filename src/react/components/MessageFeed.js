@@ -27,7 +27,7 @@ class MessageFeed extends React.Component {
             <p id="ms-text">{`"`}{ message.text }{`"`}</p>
             <p id="username">{`~`}{message.username}</p>
             <p id="ms-time">Posted on {message.createdAt.slice(0,19).split("T").join(" ")}{` GMT `}</p>
-            <AddLike/>
+            <AddLike messageId={message.id}/>
           </div>
       ))
     }
