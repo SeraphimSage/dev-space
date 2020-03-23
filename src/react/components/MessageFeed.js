@@ -7,6 +7,7 @@ import { createMessage, getMessages, deleteMessage } from "../../redux/messages"
 // import DeleteIcon from '@material-ui/icons/Delete';
 import CreateMessageForm from "./CreateMessageForm";
 import TrashCanIcon from "./TrashCanIcon";
+import AddLike from "./AddLike"
 
 
 
@@ -30,12 +31,11 @@ class MessageFeed extends React.Component {
       let messages = this.props.result.messages;
       messageCompArray = messages.map(message => (
           <div key={ message.id } id="ms-div">
-              {/* <IconButton id="delete" aria-label="delete" onClick={this.handleDeleteMessage}>
-                <DeleteIcon />
-              </IconButton> */}
+            <TrashCanIcon/>
               <p id="ms-text">{`"`}{ message.text }{`"`}</p>
               <p id="username">{`~`}{message.username}</p>
               <p id="ms-time">Posted on {message.createdAt.slice(0,19).split("T").join(" ")}{` GMT `}</p>
+              <AddLike/>
           </div>
       ))
     }

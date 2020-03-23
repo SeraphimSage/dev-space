@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import "./Message.css";
 import { createMessage} from "../../redux";
 import { userIsAuthenticated } from "../HOCs";
-import { Button, Form, TextArea } from 'semantic-ui-react'
+import { Button, TextArea } from 'semantic-ui-react'
 
 
 class CreateMessageForm extends React.Component {
