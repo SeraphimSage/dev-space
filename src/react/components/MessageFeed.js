@@ -3,8 +3,6 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import "./Message.css";
 import { createMessage, getMessages, deleteMessage } from "../../redux/messages";
-// import IconButton from '@material-ui/core/IconButton';
-// import DeleteIcon from '@material-ui/icons/Delete';
 import CreateMessageForm from "./CreateMessageForm";
 import TrashCanIcon from "./TrashCanIcon";
 import AddLike from "./AddLike"
@@ -15,14 +13,6 @@ class MessageFeed extends React.Component {
   componentDidMount() {
     this.props.getMessages();
   }
-  
-
-  handleDeleteMessage = (e) => {
-        
-    if(window.confirm("Are you sure you would like to delete this message?") === true){
-    this.props.deleteMessage(this.state)
-    }
-  }
 
   render() {
     const username = this.props.loggedInUsername;
@@ -30,12 +20,14 @@ class MessageFeed extends React.Component {
     if (this.props.result) {
       let messages = this.props.result.messages;
       messageCompArray = messages.map(message => (
-          <div key={ message.id } id="ms-div">
-            <TrashCanIcon/>
-              <p id="ms-text">{`"`}{ message.text }{`"`}</p>
-              <p id="username">{`~`}{message.username}</p>
-              <p id="ms-time">Posted on {message.createdAt.slice(0,19).split("T").join(" ")}{` GMT `}</p>
-              <AddLike/>
+        <div key={ message.id } id="ms-div">
+            {message.username === username && (
+              <TrashCanIcon messageId={message.id}/>
+            )}
+            <p id="ms-text">{`"`}{ message.text }{`"`}</p>
+            <p id="username">{`~`}{message.username}</p>
+            <p id="ms-time">Posted on {message.createdAt.slice(0,19).split("T").join(" ")}{` GMT `}</p>
+            <AddLike/>
           </div>
       ))
     }
