@@ -1,9 +1,11 @@
 import React from "react"
 import { connect} from "react-redux"
-import {} from "../../redux"
-// import {userIsAuthenticated} from "../HOCs"
+// import {setUserPicture} from "../../redux"
 
 class SetUserPicture extends React.Component {
+    state = {
+
+    }
     handleSetUserPicture = e => {
         console.log("upload started")
         e.preventDefault();
@@ -23,15 +25,13 @@ class SetUserPicture extends React.Component {
     };
 
 
-// const mapStateToProps = state => {
-//     return {
-//         loggedInUsername: state.auth.login.result.username
-//     }
-// }
-// const mapDispatchToProps = {SetUserPicture}
-export default connect(state => ({
-    result: state.users.setUserPicture.result,
-    loading: state.users.setUserPicture.loading,
-    error: state.users.setUserPicture.error
-
-}), {} (SetUserPicture))
+const mapStateToProps = state => {
+    return {
+        loggedInUsername: state.auth.login.result.username,
+        result: state.users.setUserPicture.result,
+        loading: state.users.setUserPicture.loading,
+        error: state.users.setUserPicture.error
+    }
+}
+const mapDispatchToProps = {SetUserPicture}
+export default connect(mapStateToProps, mapDispatchToProps)(SetUserPicture)
