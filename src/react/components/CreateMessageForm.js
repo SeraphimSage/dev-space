@@ -20,27 +20,27 @@ class CreateMessageForm extends React.Component {
 		document.getElementById("cm-form").reset();
 	};
 
-    render() {
-        return (
-            <React.Fragment>
-            <Form id="cm-form" type="submit">
-              <TextArea
-                id="standard-multiline-flexible"
-                label="Post a messsage!"
-                multiline
-                type="text"
-                name="text"
-                fullWidth
-                placeholder="What's on your mind today?"
-                onChange={this.handleChange}
-              />
-            <Button id="button" onClick={this.handleCreateMessage}>
-              Post your message
-            </Button>
-          </Form>
-          </React.Fragment>
-        );   
-    }
+	render() {
+		return (
+			<React.Fragment>
+				<form id="cm-form" type="submit">
+					<TextArea
+						id="standard-multiline-flexible"
+						label="Post a messsage!"
+						multiline="true"
+						type="text"
+						name="text"
+						fullwidth="true"
+						placeholder="What's on your mind today?"
+						onChange={this.handleChange}
+					/>
+					<Button id="button" onClick={this.handleCreateMessage}>
+						Post your message
+					</Button>
+				</form>
+			</React.Fragment>
+		);
+	}
 }
 
 export default connect(
