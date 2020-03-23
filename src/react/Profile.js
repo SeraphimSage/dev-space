@@ -24,12 +24,17 @@ class Profile extends React.Component {
 					<div className="column" id="mainBody">
 						<h2 id="profile">Profile</h2>
 						<UserBadge _username={this.state.username} />
-						<DeleteUserProfileBtn
-							currentUser={JSON.parse(localStorage.login).result.username}
-							_username={this.props.match.params.username}
-						/>
-						<h2 id="update">Update Username or Password</h2>
-						<UpdateUserForm />
+						{this.props.match.params.username === this.props.isAuthenticating
+								?<div id="update-user-containter">
+									<DeleteUserProfileBtn
+										currentUser={JSON.parse(localStorage.login).result.username}
+										_username={this.props.match.params.username}
+									/>
+									<h2 id="update">Update Username or Password</h2>
+								 	<UpdateUserForm />
+								 </div>
+								: console.log(this.props)}
+						
 					</div>
 					<div className="column" id="getUserList">
 						<h3>Check out our newest users!</h3>
