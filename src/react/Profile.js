@@ -33,7 +33,7 @@ class Profile extends React.Component {
 									<h2 id="update">Update Username or Password</h2>
 								 	<UpdateUserForm />
 								 </div>
-								: console.log(this.props)}
+								: console.log(this.state)}
 						
 					</div>
 					<div className="column" id="getUserList">
