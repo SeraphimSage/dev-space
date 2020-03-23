@@ -49,5 +49,5 @@ export default connect(
         loading: state.messages.createMessage.loading,
         error: state.messages.createMessage.error,
     }),
-    { createMessage, getMessages }
+    { createMessage }
     )(userIsAuthenticated(CreateMessageForm));
