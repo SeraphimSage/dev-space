@@ -4,7 +4,6 @@ import { connect} from "react-redux"
 
 class SetUserPicture extends React.Component {
     state = {
-        picture: ""
 
     }
     handleSetUserPicture = e => {
@@ -16,7 +15,7 @@ class SetUserPicture extends React.Component {
 
     render(){
         return (
-            this.props.username === this.props.loggedInUsername && (
+            this.props.username.s === this.props.loggedInUsername && (
                 <form onSubmit={this.handleSetUserPicture}>
                     <input type="file" name="picture"/>
                     <input type="submit" value="Upload Picture"/>

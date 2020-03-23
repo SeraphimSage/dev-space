@@ -12,7 +12,11 @@ class Menu extends React.Component {
 		this.props.logout();
 	};
 
+<<<<<<< HEAD
 	handleItemClick = (event, { name }) => this.setState({ activeItem: name })
+=======
+	// handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+>>>>>>> a64249ed2e6627253db06283a2dc84794485e990
 
 	render() {
 		return (
