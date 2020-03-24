@@ -4,23 +4,22 @@ import { connect} from "react-redux"
 
 class SetUserPicture extends React.Component {
     state = {
+        setUserPicture =""
 
     }
     handleSetUserPicture = e => {
         console.log("upload started")
         e.preventDefault();
         const formData = new FormData(e.target);
-        this.props.setUserPicture(formData)
+        this.props.user.username.setUserPicture(formData)
     };
 
     render(){
         return (
-            this.props.username.s === this.props.loggedInUsername && (
                 <form onSubmit={this.handleSetUserPicture}>
                     <input type="file" name="picture"/>
                     <input type="submit" value="Upload Picture"/>
                 </form>)
-        );
         };
     };
 
@@ -32,6 +31,6 @@ const mapStateToProps = state => {
         loading: state.users.setUserPicture.loading,
         error: state.users.setUserPicture.error
     }
-}
-const mapDispatchToProps = {SetUserPicture}
+},
+ {setUserPicture}
 export default connect(mapStateToProps, mapDispatchToProps)(SetUserPicture)
