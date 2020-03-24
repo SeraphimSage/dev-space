@@ -24,7 +24,8 @@ class Profile extends React.Component {
 					<div className="column" id="mainBody">
 						<h2 id="profile">Profile</h2>
 						<UserBadge _username={this.state.username} />
-						{this.props.match.params.username === this.props.isAuthenticating
+						{console.log(this)}
+						{this.props.history.action === "POP"
 								?<div id="update-user-containter">
 									<DeleteUserProfileBtn
 										currentUser={JSON.parse(localStorage.login).result.username}
@@ -33,7 +34,7 @@ class Profile extends React.Component {
 									<h2 id="update">Update Username or Password</h2>
 								 	<UpdateUserForm />
 								 </div>
-								: console.log(this.state)}
+								: ""}
 						
 					</div>
 					<div className="column" id="getUserList">
