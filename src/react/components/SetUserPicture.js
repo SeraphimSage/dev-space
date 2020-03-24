@@ -1,10 +1,10 @@
 import React from "react"
 import { connect} from "react-redux"
-// import {setUserPicture} from "../../redux"
+ import {setUserPicture} from "../../redux"
 
 class SetUserPicture extends React.Component {
     state = {
-        setUserPicture =""
+        setUserPicture: ""
 
     }
     handleSetUserPicture = e => {
@@ -16,11 +16,15 @@ class SetUserPicture extends React.Component {
 
     render(){
         return (
+            <>
+                <h3>Hello World</h3>
                 <form onSubmit={this.handleSetUserPicture}>
                     <input type="file" name="picture"/>
                     <input type="submit" value="Upload Picture"/>
-                </form>)
-        };
+                </form>
+            </>
+            )
+        }
     };
 
 
@@ -31,6 +35,6 @@ const mapStateToProps = state => {
         loading: state.users.setUserPicture.loading,
         error: state.users.setUserPicture.error
     }
-},
- {setUserPicture}
+}
+const mapDispatchToProps = {setUserPicture}
 export default connect(mapStateToProps, mapDispatchToProps)(SetUserPicture)
