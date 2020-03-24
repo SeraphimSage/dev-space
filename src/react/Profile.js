@@ -1,13 +1,13 @@
 import React from "react";
 import { Menu, UpdateUserForm, GetUserList } from "./components";
 import { userIsAuthenticated } from "./HOCs";
-import { DeleteUserProfileBtn } from "./components";
 import "./components/update.css";
 import { UserBadge } from "./components";
 
 class Profile extends React.Component {
-	state = {
+	state ={
 		username: this.props.match.params.username
+
 	};
 
 	componentDidUpdate(prevProps) {
@@ -24,16 +24,9 @@ class Profile extends React.Component {
 					<div className="column" id="mainBody">
 						<h2 id="profile">Profile</h2>
 						<UserBadge _username={this.state.username} />
-						{console.log(this)}
-						{this.props.history.action === "POP"
-								?<div id="update-user-containter">
-									<DeleteUserProfileBtn
-										currentUser={JSON.parse(localStorage.login).result.username}
-										_username={this.props.match.params.username}
-									/>
-									<h2 id="update">Update Username or Password</h2>
-								 	<UpdateUserForm />
-								 </div>
+						{console.log(this.props)}
+						{ this.props.location.pathname.slice(10) === this.props.match.params.username
+								?	<UpdateUserForm />
 								: ""}
 						
 					</div>

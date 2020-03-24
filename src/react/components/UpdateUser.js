@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { updateUser } from "../../redux/users";
+import { DeleteUserProfileBtn} from "../components"
 import "./CreateUserForm.css";
 import "./LoginForm.css";
 
@@ -11,9 +12,10 @@ class UpdateUserForm extends React.Component {
 			about: "",
 			displayName: ""
 		},
-		updated: false
+    updated: false,
+    username: this.props.match
 	};
-
+		
 	handleUpdateUser = e => {
 		e.preventDefault();
 		this.props.updateUser(this.state.updateInfo);
@@ -24,12 +26,23 @@ class UpdateUserForm extends React.Component {
 		const updateInfo = { ...this.state.updateInfo };
 		updateInfo[e.target.name] = e.target.value;
 		this.setState({ updateInfo: updateInfo });
-	};
+  };
 
-          render() {
-            const { loading, error } = this.props;
+  componentDidUpdate = (prevProps) => {
+    if (prevProps.location.pathname !== this.props.location.pathname) {
+      this.setState({ username: this.props});
+    }
+  };
+  
+  render() {
+    const { loading, error } = this.props;
             return (
               <React.Fragment>
+                <DeleteUserProfileBtn
+										currentUser={JSON.parse(localStorage.login).result.username}
+										_username={this.props.match}
+									/>
+									<h2 id="update">Update Username or Password</h2>
                 <div id="big-box">
                 <form id="update-form" onSubmit={this.handleUpdateUser}>
                   <label className="input-label" htmlFor="password">Password</label>
@@ -66,7 +79,6 @@ class UpdateUserForm extends React.Component {
             );
           };
         }
-
 export default connect(
     null,
     { updateUser }
