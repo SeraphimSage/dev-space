@@ -13,7 +13,6 @@ class UpdateUserForm extends React.Component {
 			displayName: ""
 		},
     updated: false,
-    username: this.props.match
 	};
 		
 	handleUpdateUser = e => {

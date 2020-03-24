@@ -1,20 +1,11 @@
 import React from "react";
-import { Menu, UpdateUserForm, GetUserList } from "./components";
+import { Menu, ConditionalUpdate, GetUserList } from "./components";
 import { userIsAuthenticated } from "./HOCs";
 import "./components/update.css";
 import { UserBadge } from "./components";
 
 class Profile extends React.Component {
-	state ={
-		username: this.props.match.params.username
 
-	};
-
-	componentDidUpdate(prevProps) {
-		if (prevProps.location.pathname !== this.props.location.pathname) {
-			this.setState({ username: this.props.match.params.username });
-		}
-	}
 	render() {
 		return (
 			<>
@@ -23,11 +14,8 @@ class Profile extends React.Component {
 					<div className="column" id="placeHolder"></div>
 					<div className="column" id="mainBody">
 						<h2 id="profile">Profile</h2>
-						<UserBadge _username={this.state.username} />
-						{console.log(this.props)}
-						{ this.props.location.pathname.slice(10) === this.props.match.params.username
-								?	<UpdateUserForm />
-								: ""}
+						<UserBadge />
+						<ConditionalUpdate />
 						
 					</div>
 					<div className="column" id="getUserList">
