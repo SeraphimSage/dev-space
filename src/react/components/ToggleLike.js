@@ -15,8 +15,8 @@ class ToggleLike extends React.Component {
 
 	render() {
 		return (
-			<div id="heartico" class="ui icon button" key={this.props.messageId} tabindex="0">
-                <i class="heart icon" onClick={(e) => this.handleToggleLike(e, this.props.messageId)}/>{this.props.message.likes.length > 0 ? 
+			<div id="heartico" className="ui icon button" key={this.props.messageId} tabIndex="0">
+                <i className="heart icon" onClick={(e) => this.handleToggleLike(e, this.props.messageId)}/>{this.props.message.likes.length > 0 ? 
                           <div>
                             <i color="primary" /> 
                             <div id="likes">

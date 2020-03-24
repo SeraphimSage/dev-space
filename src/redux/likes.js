@@ -8,8 +8,6 @@ import {
 	createReducer
 } from "./helpers";
 import { getMessages } from "./messages";
-import { create } from "domain";
-
 
 const url = domain + "/likes";
 
@@ -20,21 +18,14 @@ export const toggleLike = (messageId) => (dispatch, getState) => {
 	const message = messages.find(message => message.id === messageId)
 	const likes = message.likes
 	const likeUsernames = likes.map(like => like.username)
-	if (likes.length > 0) {
-		for (let i=0; i < likeUsernames.length; i++ ) {
-			if (likeUsernames[i] === username) {
-				return dispatch(removeLike(likes[i].id, username))
-			}
-			else {
-				return dispatch(addLike(messageId, username))
-			}
+	if (likeUsernames.some(likeUsernames => likeUsernames === username)) {
+		console.log(likes)
+			return dispatch(removeLike(likes.indexOf(username).id))
+				}
+		else {
+			dispatch(addLike(messageId, username))
 		}
 	}
-	else {
-		return dispatch(addLike(messageId, username))
-	}
-}
-
 const ADD_LIKE = createActions("addLike");
 export const addLike = (messageId) => (dispatch, getState) => {
     dispatch(ADD_LIKE.START);
@@ -55,8 +46,8 @@ export const addLike = (messageId) => (dispatch, getState) => {
 }
 
 const REMOVE_LIKE = createActions("removeLike");
-export const removeLike = (likeId, username) => (dispatch, getState) =>{
-	dispatch(ADD_LIKE.START);
+export const removeLike = (likeId) => (dispatch, getState) =>{
+	dispatch(REMOVE_LIKE.START);
 	const token = getState().auth.login.result.token;
 		return fetch(url, `/${likeId}`, {
 		method: "DELETE",
@@ -64,7 +55,7 @@ export const removeLike = (likeId, username) => (dispatch, getState) =>{
 	.then(handleJsonResponse)
 	.then(result => {dispatch(REMOVE_LIKE.SUCCESS(result))
 	dispatch(getMessages())})
-	.catch(err => Promise.reject(dispatch(ADD_LIKE.FAIL(err))));
+	.catch(err => Promise.reject(dispatch(REMOVE_LIKE.FAIL(err))));
 }
 
 export const reducers = {
