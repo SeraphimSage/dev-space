@@ -16,8 +16,8 @@ const url = domain + "/likes";
 const TOGGLE_LIKE = createActions("toggleLike");
 export const toggleLike = (messageId) => (dispatch, getState) => {
 	const username = getState().auth.login.result.username
-	const messages = getState().messages.getmessages.result.messages
-	const message = message.find(message => message.id === messageId)
+	const messages = getState().messages.getMessages.result.messages
+	const message = messages.find(message => message.id === messageId)
 	const likes = message.likes
 	const likeUsernames = likes.map(like => like.username)
 	if (likes.length > 0) {
