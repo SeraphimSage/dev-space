@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { setUserPicture } from "../../redux";
+import "./SetUserPicture.css";
+import { Form } from "semantic-ui-react";
 
 class SetUserPicture extends React.Component {
   state = {
@@ -11,29 +13,29 @@ class SetUserPicture extends React.Component {
     e.preventDefault();
     const formData = new FormData(e.target);
     console.log(this);
-    this.props.users.getUser.result.user.setUserPicture(formData);
+    this.props.setUserPicture(formData);
   };
 
   render() {
     return (
-      <>
-        <h3>Hello World</h3>
-        <form onSubmit={this.handleSetUserPicture}>
-          <input type="file" name="picture" />
-          <input type="submit" value="Upload Picture" />
-        </form>
-      </>
+      // this.props.username === this.props.username && (
+      <Form>
+        <Form.Group widths="equal">
+          <form onSubmit={this.handleSetUserPicture}>
+            <input type="file" name="picture" />
+            <br />
+            <input type="submit" value="Upload Picture" />
+          </form>
+        </Form.Group>
+      </Form>
+      // )
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    loggedInUsername: state.auth.login.result.username,
-    pictureLocation: state.users.getUser.result.user.pictureLocation,
-    result: state.users.setUserPicture.result,
-    loading: state.users.setUserPicture.loading,
-    error: state.users.setUserPicture.error
+    username: state.auth.login.result.username
   };
 };
 const mapDispatchToProps = { setUserPicture };

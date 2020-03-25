@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { getUser } from "../../redux/users";
 import { Card, Icon, Image, Label } from "semantic-ui-react";
 import Spinner from "react-spinkit";
-import { SetUserPicture } from ".";
 
 class UserBadge extends React.Component {
   componentDidMount() {
@@ -67,7 +66,6 @@ class UserBadge extends React.Component {
                 : "Stay tuned for the about details"}{" "}
             </Card.Description>
           </Card.Content>
-          <SetUserPicture username={this.props.username} />
         </Card>
       </React.Fragment>
     );
