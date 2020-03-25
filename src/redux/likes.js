@@ -18,14 +18,17 @@ export const toggleLike = (messageId) => (dispatch, getState) => {
 	const message = messages.find(message => message.id === messageId)
 	const likes = message.likes
 	const likeUsernames = likes.map(like => like.username)
-	if (likeUsernames.some(likeUsernames => likeUsernames === username)) {
-		console.log(likes)
-			return dispatch(removeLike(likes.indexOf(username).id))
-				}
-		else {
-			dispatch(addLike(messageId, username))
-		}
-	}
+	if (likes.length > 0) {
+        for (let i = 0; i < likeUsernames.length; i++) {
+            if (likeUsernames[i] === username) {
+                return dispatch(removeLike(likes[i].id));
+            } 
+        }
+        return dispatch(addLike(messageId, username));
+    } else {
+        return dispatch(addLike(messageId, username));
+    }
+};
 const ADD_LIKE = createActions("addLike");
 export const addLike = (messageId) => (dispatch, getState) => {
     dispatch(ADD_LIKE.START);
@@ -35,7 +38,7 @@ export const addLike = (messageId) => (dispatch, getState) => {
 	}
 	const newMessagePayload = {
 		method: "POST",
-		headers: { ...jsonHeaders, Authorization: "Bearer " + token},
+		headers: { ...jsonHeaders, Authorization: `Bearer ${token}`},
 		body: JSON.stringify(messageBody)
 	}
 	return fetch(url, newMessagePayload)
@@ -47,16 +50,16 @@ export const addLike = (messageId) => (dispatch, getState) => {
 
 const REMOVE_LIKE = createActions("removeLike");
 export const removeLike = (likeId) => (dispatch, getState) =>{
-	dispatch(REMOVE_LIKE.START);
+	dispatch(REMOVE_LIKE.START());
 	const token = getState().auth.login.result.token;
-		return fetch(url, `/${likeId}`, {
+		return fetch(url + `/${likeId}`, {
 		method: "DELETE",
-		headers: { ...jsonHeaders, Authorization: "Bearer " + token}})
+		headers: { Authorization: "Bearer " + token, ...jsonHeaders}})
 	.then(handleJsonResponse)
 	.then(result => {dispatch(REMOVE_LIKE.SUCCESS(result))
 	dispatch(getMessages())})
 	.catch(err => Promise.reject(dispatch(REMOVE_LIKE.FAIL(err))));
-}
+	}
 
 export const reducers = {
     addLike: createReducer(asyncInitialState, {
