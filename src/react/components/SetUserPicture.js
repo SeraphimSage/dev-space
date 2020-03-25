@@ -5,37 +5,51 @@ import "./SetUserPicture.css";
 import { Form } from "semantic-ui-react";
 
 class SetUserPicture extends React.Component {
-  state = {
-    setUserPicture: ""
-  };
+  // state = {
+  //   upload: false
+  // };
   handleSetUserPicture = e => {
     console.log("upload started");
     e.preventDefault();
-    const formData = new FormData(e.target);
-    console.log(this);
+    const formData = e.target;
     this.props.setUserPicture(formData);
+    // const uploadFinish = this.props.setUserPicture.state.upload;
+    // this.setState((uploadFinish = true));
   };
+
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.uploadFinish !== this.props.uploadFinish) {
+  //     console.log("Upload Complete");
+  //   }
+  // }
 
   render() {
     return (
-      // this.props.username === this.props.username && (
       <Form>
         <Form.Group widths="equal">
           <form onSubmit={this.handleSetUserPicture}>
-            <input type="file" name="picture" />
+            <input
+              type="file"
+              id="avatar"
+              name="picture"
+              accept=".png, .jpg, .jpeg, .gif"
+              size="200000"
+            />
             <br />
-            <input type="submit" value="Upload Picture" />
+            <input type="submit" value="Upload picture" />
           </form>
         </Form.Group>
       </Form>
-      // )
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    username: state.auth.login.result.username
+    username: state.auth.login.result.username,
+    result: state.users.setUserPicture.result,
+    loading: state.users.setUserPicture.loading,
+    error: state.users.setUserPicture.error
   };
 };
 const mapDispatchToProps = { setUserPicture };

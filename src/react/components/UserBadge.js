@@ -26,10 +26,10 @@ class UserBadge extends React.Component {
       <React.Fragment>
         <Card>
           <Image
+            id="profile pic"
             src={
               this.props.result.user.pictureLocation
-                ? "https://kwitta-api.herokuapp.com" +
-                  this.props.result.user.pictureLocation
+                ? `https://kwitter-api.herokuapp.com/users/${this.props.result.user.username}/picture`
                 : "http://simpleicon.com/wp-content/uploads/user1.svg"
             }
             wrapped
