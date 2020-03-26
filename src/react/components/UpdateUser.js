@@ -36,7 +36,6 @@ class UpdateUserForm extends React.Component {
                   <input
                     type="text"
                     name="password"
-                    autoFocus
                     required
                     minLength="4"
                     onChange={this.handleChange}
@@ -45,7 +44,6 @@ class UpdateUserForm extends React.Component {
                   <input
                     type="text"
                     name="about"
-                    autoFocus
                     required
                     minLength="4"
                     onChange={this.handleChange}
@@ -54,7 +52,6 @@ class UpdateUserForm extends React.Component {
                   <input
                     type="text"
                     name="displayName"
-                    autoFocus
                     required
                     minLength="4"
                     onChange={this.handleChange}
