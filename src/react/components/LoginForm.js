@@ -36,7 +36,13 @@ class LoginForm extends React.Component {
     return (
       <React.Fragment>
         <div id="big-box">
-          <Form id="login-form" onSubmit={this.handleLogin} inverted>
+          <Form
+            size="big"
+            key="big"
+            id="login-form"
+            onSubmit={this.handleLogin}
+            inverted
+          >
             <Form.Group widths="equal">
               <Form.Input
                 fluid
@@ -47,10 +53,10 @@ class LoginForm extends React.Component {
                 type="text"
                 name="username"
                 required
-                error
                 onChange={this.handleChange}
               />
               <Form.Input
+                fluid
                 label="password"
                 className="input-label"
                 htmlFor="password"
@@ -58,36 +64,36 @@ class LoginForm extends React.Component {
                 name="password"
                 required
                 minLength="4"
-                error
                 onChange={this.handleChange}
               />
-              <Button.Group vertical size="small">
+            </Form.Group>
+            <Button.Group size="large">
+              <Button
+                variant="outlined"
+                type="submit"
+                disabled={loading}
+                content="Login"
+              />
+              <NavLink to="/createuser">
                 <Button
                   variant="outlined"
                   type="submit"
                   disabled={loading}
-                  content="Login"
+                  content="Create New User"
                 />
-                <NavLink to="/createuser">
-                  <Button
-                    variant="outlined"
-                    type="submit"
-                    disabled={loading}
-                    content="Create New User"
-                  />
-                </NavLink>
+              </NavLink>
 
-                {loading && <Spinner name="circle" color="blue" />}
-                {error && <p id="error">{error.message}</p>}
-              </Button.Group>
-              <GoogleLogin
-                clientId="621780130975-9tfkj368qsdc5hbgbsiqsnrrd86lpsli.apps.googleusercontent.com"
-                buttonText="Login"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy={"single_host_origin"}
-              />
-            </Form.Group>
+              {loading && <Spinner name="circle" color="blue" />}
+              {error && <p id="error">{error.message}</p>}
+            </Button.Group>
+            <GoogleLogin
+              id="googleLogin"
+              clientId="621780130975-9tfkj368qsdc5hbgbsiqsnrrd86lpsli.apps.googleusercontent.com"
+              buttonText="Login"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+              cookiePolicy={"single_host_origin"}
+            />
           </Form>
         </div>
       </React.Fragment>
