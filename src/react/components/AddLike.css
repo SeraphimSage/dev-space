@@ -1,0 +1,5 @@
+#heartico :hover{
+    cursor: pointer;
+    color: yellow;
+    transition: 0.5s all ease;
+}

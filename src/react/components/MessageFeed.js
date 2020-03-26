@@ -5,6 +5,7 @@ import "./Message.css";
 import { createMessage, getMessages, deleteMessage } from "../../redux/messages";
 import CreateMessageForm from "./CreateMessageForm";
 import TrashCanIcon from "./TrashCanIcon";
+import ToggleLike from "./ToggleLike"
 
 
 
@@ -25,7 +26,8 @@ class MessageFeed extends React.Component {
             )}
             <p id="ms-text">{`"`}{ message.text }{`"`}</p>
             <p id="username">{`~`}{message.username}</p>
-              <p id="ms-time">Posted on {message.createdAt.slice(0,19).split("T").join(" ")}{` GMT `}</p>
+            <p id="ms-time">Posted on {message.createdAt.slice(0,19).split("T").join(" ")}{` GMT `}</p>
+            <ToggleLike messageId={message.id} message={message}/>
           </div>
       ))
     }

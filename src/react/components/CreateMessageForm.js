@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./Message.css";
-import { createMessage, getMessages} from "../../redux";
+import { createMessage} from "../../redux";
 import { userIsAuthenticated } from "../HOCs";
-import { TextArea, Button } from "semantic-ui-react";
+import { Button, TextArea } from 'semantic-ui-react'
+
 
 class CreateMessageForm extends React.Component {
 	handleChange = e => {
@@ -48,5 +49,5 @@ export default connect(
         loading: state.messages.createMessage.loading,
         error: state.messages.createMessage.error,
     }),
-    { createMessage, getMessages }
+    { createMessage }
     )(userIsAuthenticated(CreateMessageForm));
