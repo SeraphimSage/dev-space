@@ -5,23 +5,13 @@ import "./SetUserPicture.css";
 import { Form } from "semantic-ui-react";
 
 class SetUserPicture extends React.Component {
-  // state = {
-  //   upload: false
-  // };
+ 
   handleSetUserPicture = e => {
     console.log("upload started");
     e.preventDefault();
     const formData = e.target;
     this.props.setUserPicture(formData);
-    // const uploadFinish = this.props.setUserPicture.state.upload;
-    // this.setState((uploadFinish = true));
-  };
-
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.uploadFinish !== this.props.uploadFinish) {
-  //     console.log("Upload Complete");
-  //   }
-  // }
+   
 
   render() {
     return (
