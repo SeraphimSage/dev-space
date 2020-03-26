@@ -8,11 +8,9 @@ import { login } from "../../redux/auth";
 
 class CreateUserForm extends React.Component {
   state = {
-    createUserData: {
-      username: "",
-      displayName: "",
-      password: ""
-    }
+    username: "",
+    displayName: "",
+    password: ""
   };
 
   handleChange = e => {
@@ -23,10 +21,10 @@ class CreateUserForm extends React.Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-    this.props.createUser(this.state.createUserData).then(() =>
+    this.props.createUser(this.state).then(() =>
       this.props.login({
-        username: this.state.createUserData.username,
-        password: this.state.createUserData.password
+        username: this.state.username,
+        password: this.state.password
       })
     );
     document.getElementById("create-user-form").reset();
