@@ -24,19 +24,17 @@ class UserBadge extends React.Component {
     }
     return (
       <React.Fragment>
-        <Card id="userBadge">
+        <Card>
           <Image
-            id="avatar"
+            id="profile pic"
             src={
               this.props.result.user.pictureLocation
-                ? "https://kwitta-api.herokuapp.com" +
-                  this.props.result.user.pictureLocation
+                ? `https://kwitter-api.herokuapp.com/users/${this.props.result.user.username}/picture`
                 : "http://simpleicon.com/wp-content/uploads/user1.svg"
             }
             wrapped
             ui={false}
-            maxwidth="5em"
-            size="small"
+            maxwidth="20em"
           />
           <Card.Content>
             <Card.Header>
@@ -68,7 +66,6 @@ class UserBadge extends React.Component {
                 : "Stay tuned for the about details"}{" "}
             </Card.Description>
           </Card.Content>
-          <Card.Content extra></Card.Content>
         </Card>
       </React.Fragment>
     );
