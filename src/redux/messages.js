@@ -30,7 +30,6 @@ export const createMessage = messageData => dispatch => {
 const GET_MESSAGES = createActions("getMessages");
 export const getMessages = () => (dispatch) => {
   dispatch(GET_MESSAGES.START());
-  console.log("hello")
     return fetch(url + `?limit=10&offset=0`)
 		.then(handleJsonResponse)
 		.then(result => dispatch(GET_MESSAGES.SUCCESS(result)))

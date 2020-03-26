@@ -93,7 +93,6 @@ export const reducers = {
 	getUserList: createReducer(asyncInitialState, {
 		...asyncCases(GET_USER_LIST)
 	}),
-	getUser: createReducer(asyncInitialState, {
-		...asyncCases(GET_USER)
-	})
+	 getUser: createReducer(asyncInitialState, {
+      ...asyncCases(GET_USER)})
 };
