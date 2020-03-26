@@ -4,6 +4,7 @@ import { updateUser } from "../../redux/users";
 import "./CreateUserForm.css";
 import "./LoginForm.css";
 import { SetUserPicture } from ".";
+import { Form, Button } from "semantic-ui-react";
 
 class UpdateUserForm extends React.Component {
   state = {
@@ -32,11 +33,11 @@ class UpdateUserForm extends React.Component {
     return (
       <React.Fragment>
         <div id="big-box">
-          <form id="update-form" onSubmit={this.handleUpdateUser}>
+          <Form onSubmit={this.handleUpdateUser}>
             <label className="input-label" htmlFor="password">
               Password
             </label>
-            <input
+            <Form.Input
               type="text"
               name="password"
               autoFocus
@@ -47,7 +48,7 @@ class UpdateUserForm extends React.Component {
             <label className="input-label" htmlFor="password">
               About
             </label>
-            <input
+            <Form.Input
               type="text"
               name="about"
               autoFocus
@@ -58,7 +59,7 @@ class UpdateUserForm extends React.Component {
             <label className="input-label" htmlFor="displayName">
               Display Name
             </label>
-            <input
+            <Form.Input
               type="text"
               name="displayName"
               autoFocus
@@ -66,10 +67,10 @@ class UpdateUserForm extends React.Component {
               minLength="4"
               onChange={this.handleChange}
             />
-            <button id="button" type="submit" disabled={loading}>
+            <Button id="button" type="submit" disabled={loading}>
               Update Info
-            </button>
-          </form>
+            </Button>
+          </Form>
           <SetUserPicture username={this.props.username} />
         </div>
         {error && <p id="error">{error.message}</p>}

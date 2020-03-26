@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { setUserPicture } from "../../redux";
 import "./SetUserPicture.css";
-import { Form } from "semantic-ui-react";
 
 class SetUserPicture extends React.Component {
   handleSetUserPicture = e => {
@@ -14,21 +13,15 @@ class SetUserPicture extends React.Component {
 
   render() {
     return (
-      <Form>
-        <Form.Group widths="equal">
-          <form onSubmit={this.handleSetUserPicture}>
-            <input
-              type="file"
-              id="avatar"
-              name="picture"
-              accept=".png, .jpg, .jpeg, .gif"
-              size="200000"
-            />
-            <br />
-            <input type="submit" value="Upload picture" />
-          </form>
-        </Form.Group>
-      </Form>
+      <form onSubmit={this.handleSetUserPicture}>
+        <input
+          type="file"
+          id="avatar"
+          name="picture"
+          accept=".png, .jpg, .jpeg, .gif"
+        />
+        <button type="submit">Upload picture</button>
+      </form>
     );
   }
 }

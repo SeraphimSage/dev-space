@@ -56,11 +56,11 @@ class CreateUserForm extends React.Component {
               <label className="input-label" htmlFor="username">
                 Username
               </label>
-              <input
+              <Form.Input
                 type="text"
                 name="username"
                 autoFocus
-                minlength="4"
+                minLength="4"
                 required
                 onChange={this.handleChange}
               />
@@ -69,11 +69,11 @@ class CreateUserForm extends React.Component {
               <label className="input-label" htmlFor="displayName">
                 Display Name
               </label>
-              <input
+              <Form.Input
                 type="text"
                 name="displayName"
                 autoFocus
-                minlength="4"
+                minLength="4"
                 required
                 onChange={this.handleChange}
               />
@@ -82,12 +82,12 @@ class CreateUserForm extends React.Component {
               <label className="input-label" htmlFor="password">
                 Password
               </label>
-              <input
+              <Form.Input
                 type="password"
                 name="password"
                 required
                 autoFocus
-                minlength="4"
+                minLength="4"
                 onChange={this.handleChange}
               />
             </Form.Field>
