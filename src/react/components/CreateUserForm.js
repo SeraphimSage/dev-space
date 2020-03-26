@@ -5,14 +5,15 @@ import { NavLink } from "react-router-dom";
 import { createUser } from "../../redux/users";
 import GoogleLogin from "react-google-login";
 import { login } from "../../redux/auth";
+import { Form, Button } from "semantic-ui-react";
 
 class CreateUserForm extends React.Component {
   state = {
-	createUserData: {
-	username: "",
-    displayName: "",
-	password: ""
-	}
+    createUserData: {
+      username: "",
+      displayName: "",
+      password: ""
+    }
   };
 
   handleChange = e => {
@@ -23,68 +24,81 @@ class CreateUserForm extends React.Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-    this.props.createUser(this.state.createUserData).then(() => 
-	this.props.login({
-		username: this.state.createUserData.username,
-		password: this.state.createUserData.password
-	})) 
+    this.props.createUser(this.state.createUserData).then(() =>
+      this.props.login({
+        username: this.state.createUserData.username,
+        password: this.state.createUserData.password
+      })
+    );
     document.getElementById("create-user-form").reset();
   };
   render() {
-		const responseGoogle = (response) => {
-			console.log(response)
-			const googleLoginData = {
-				username: response.profileObj.givenName,
-				displayName: response.profileObj.givenName,
-				password: response.profileObj.googleId.slice(6)
-			}
-			this.props.createUser(googleLoginData).then(() => 
-			this.props.login({
-				username: googleLoginData.username,
-				password: googleLoginData.password
-			})) 
-		}
+    const responseGoogle = response => {
+      console.log(response);
+      const googleLoginData = {
+        username: response.profileObj.givenName,
+        displayName: response.profileObj.givenName,
+        password: response.profileObj.googleId.slice(6)
+      };
+      this.props.createUser(googleLoginData).then(() =>
+        this.props.login({
+          username: googleLoginData.username,
+          password: googleLoginData.password
+        })
+      );
+    };
     return (
       <React.Fragment>
         <h2 id="create-head">Create An Account</h2>
         <div id="big-box">
-          <form id="create-user-form" onSubmit={this.handleSubmit}>
-            <label className="input-label" htmlFor="username">
-              Username
-            </label>
-            <input
-              type="text"
-              name="username"
-              autoFocus
-              minlength="4"
-              required
-              onChange={this.handleChange}
-            />
-            <label className="input-label" htmlFor="displayName">
-              Display Name
-            </label>
-            <input
-              type="text"
-              name="displayName"
-              autoFocus
-              minlength="4"
-              required
-              onChange={this.handleChange}
-            />
-            <label className="input-label" htmlFor="password">
-              Password
-            </label>
-            <input
-              type="password"
-              name="password"
-              required
-              autoFocus
-              minlength="4"
-              onChange={this.handleChange}
-            />
-            <button className="input-button" type="submit">
+          <Form size="big" key="big" inverted>
+            <Form.Field id="create-user-form" onSubmit={this.handleSubmit}>
+              <label className="input-label" htmlFor="username">
+                Username
+              </label>
+              <input
+                type="text"
+                name="username"
+                autoFocus
+                minlength="4"
+                required
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <label className="input-label" htmlFor="displayName">
+                Display Name
+              </label>
+              <input
+                type="text"
+                name="displayName"
+                autoFocus
+                minlength="4"
+                required
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <label className="input-label" htmlFor="password">
+                Password
+              </label>
+              <input
+                type="password"
+                name="password"
+                required
+                autoFocus
+                minlength="4"
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Button size="large" className="input-button" type="submit">
               Submit
-            </button>
+            </Button>
+            <Button size="large">
+              <NavLink id="navlink-create" to="/">
+                Return to home
+              </NavLink>
+            </Button>
             <GoogleLogin
               clientId="621780130975-9tfkj368qsdc5hbgbsiqsnrrd86lpsli.apps.googleusercontent.com"
               buttonText="Login"
@@ -92,12 +106,7 @@ class CreateUserForm extends React.Component {
               onFailure={responseGoogle}
               cookiePolicy={"single_host_origin"}
             />
-          </form>
-        </div>
-        <div id="navlink-box">
-          <NavLink id="navlink-create" to="/">
-            Return to home
-          </NavLink>
+          </Form>
         </div>
       </React.Fragment>
     );

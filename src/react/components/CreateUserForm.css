@@ -1,81 +1,76 @@
 @import url("https://fonts.googleapis.com/css?family=Inder&display=swap");
 
 #big-box {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #error {
-	color: orange;
-	font-family: var(--main-text-font);
-	text-align: center;
-}
-
-#navlink-box {
-	display: flex;
-	justify-content: center;
+  color: orange;
+  font-family: var(--main-text-font);
+  text-align: center;
 }
 
 #navlink-create {
-	font-family: var(--main-text-font);
-	color: rgb(204, 122, 0);
+  font-family: var(--main-text-font);
+  color: rgb(204, 122, 0);
 }
 
 :root {
-	--main-bg-color: rgb(38, 38, 38);
-	--main-text-color: rgb(255, 255, 255);
-	--main-link-color: hsl(192, 96%, 56%);
-	--main-text-font: "Inder", sans-serif;
-	--header-menu-color: rgba(153, 150, 150, 0.6);
+  --main-bg-color: rgb(38, 38, 38);
+  --main-text-color: rgb(255, 255, 255);
+  --main-link-color: hsl(192, 96%, 56%);
+  --main-text-font: "Inder", sans-serif;
+  --header-menu-color: rgba(153, 150, 150, 0.6);
 }
 
 body {
-	background: var(--main-bg-color);
-	color: var(--main-text-color);
-	font-weight: lighter;
+  background: var(--main-bg-color);
+  color: var(--main-text-color);
+  font-weight: lighter;
 }
 
 #create-head {
-	color: var(--main-text-color);
-	text-align: center;
-	font-size: 2em;
-	font-family: var(--main-text-font);
+  color: var(--main-text-color);
+  text-align: center;
+  font-size: 2em;
+  font-family: var(--main-text-font);
 }
 
 #create-user-form,
 #update-form {
-	display: flex;
-	flex-direction: column;
-	max-width: 20em;
+  display: flex;
+  flex-direction: column;
+  max-width: 20em;
 }
 
 .input-label {
-	color: var(--main-text-color);
-	font-family: var(--main-text-font);
+  color: var(--main-text-color);
+  font-family: var(--main-text-font);
 }
 
 #input-button {
-	color: black;
+  color: black;
 }
 
 input:invalid {
-	border: 2px solid red;
+  border: 2px solid red;
 }
 
 input:invalid:required {
-	background-image: linear-gradient(
-		to right,
-		rgb(255, 255, 255),
-		rgb(238, 144, 144)
-	);
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 255, 255),
+    rgb(238, 144, 144)
+  );
 }
 
 input:valid {
-	border: 2px solid rgb(2, 253, 15);
+  border: 2px solid rgb(2, 253, 15);
 }
 
 #getUserFormSearch {
-	color: var(--main-text-color);
-	font-weight: bold;
+  color: var(--main-text-color);
+  font-weight: bold;
 }
