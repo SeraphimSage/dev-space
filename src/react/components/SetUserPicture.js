@@ -5,13 +5,12 @@ import "./SetUserPicture.css";
 import { Form } from "semantic-ui-react";
 
 class SetUserPicture extends React.Component {
- 
   handleSetUserPicture = e => {
     console.log("upload started");
     e.preventDefault();
     const formData = e.target;
     this.props.setUserPicture(formData);
-   
+  };
 
   render() {
     return (
