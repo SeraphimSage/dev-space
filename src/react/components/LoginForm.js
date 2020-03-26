@@ -67,25 +67,27 @@ class LoginForm extends React.Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-            <Button.Group size="large">
+
+            <Button
+              size="large"
+              variant="outlined"
+              type="submit"
+              disabled={loading}
+              content="Login"
+            />
+            <NavLink to="/createuser">
               <Button
+                size="large"
                 variant="outlined"
                 type="submit"
                 disabled={loading}
-                content="Login"
+                content="Create New User"
               />
-              <NavLink to="/createuser">
-                <Button
-                  variant="outlined"
-                  type="submit"
-                  disabled={loading}
-                  content="Create New User"
-                />
-              </NavLink>
+            </NavLink>
 
-              {loading && <Spinner name="circle" color="blue" />}
-              {error && <p id="error">{error.message}</p>}
-            </Button.Group>
+            {loading && <Spinner name="circle" color="blue" />}
+            {error && <p id="error">{error.message}</p>}
+
             <GoogleLogin
               id="googleLogin"
               clientId="621780130975-9tfkj368qsdc5hbgbsiqsnrrd86lpsli.apps.googleusercontent.com"

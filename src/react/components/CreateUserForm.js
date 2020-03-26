@@ -94,6 +94,11 @@ class CreateUserForm extends React.Component {
             <Button size="large" className="input-button" type="submit">
               Submit
             </Button>
+            <Button size="large">
+              <NavLink id="navlink-create" to="/">
+                Return to home
+              </NavLink>
+            </Button>
             <GoogleLogin
               clientId="621780130975-9tfkj368qsdc5hbgbsiqsnrrd86lpsli.apps.googleusercontent.com"
               buttonText="Login"
@@ -101,11 +106,6 @@ class CreateUserForm extends React.Component {
               onFailure={responseGoogle}
               cookiePolicy={"single_host_origin"}
             />
-            <Button size="large">
-              <NavLink id="navlink-create" to="/">
-                Return to home
-              </NavLink>
-            </Button>
           </Form>
         </div>
       </React.Fragment>
